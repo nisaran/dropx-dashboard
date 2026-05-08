@@ -1,79 +1,618 @@
 <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>DropX Leads</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:Arial, sans-serif;
+      background:#0f1117;
+      color:#fff;
+      min-height:100vh;
+    }
+
+    .topbar{
+      height:60px;
+      background:#171a21;
+      border-bottom:1px solid #2b2f3a;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 20px;
+    }
+
+    .logo{
+      font-size:20px;
+      font-weight:bold;
+      color:#f5a800;
+    }
+
+    .container{
+      padding:20px;
+    }
+
+    .login-box{
+      max-width:400px;
+      margin:100px auto;
+      background:#171a21;
+      border:1px solid #2b2f3a;
+      border-radius:10px;
+      padding:30px;
+    }
+
+    .login-box h2{
+      margin-bottom:20px;
+    }
+
+    input,
+    textarea,
+    select{
+      width:100%;
+      background:#0f1117;
+      border:1px solid #333;
+      color:#fff;
+      border-radius:6px;
+      padding:10px;
+      margin-top:10px;
+    }
+
+    button{
+      background:#f5a800;
+      color:#000;
+      border:none;
+      padding:10px 18px;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    button:hover{
+      opacity:.9;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:15px;
+      margin-bottom:20px;
+    }
+
+    .card{
+      background:#171a21;
+      border:1px solid #2b2f3a;
+      border-radius:10px;
+      padding:20px;
+    }
+
+    .card h3{
+      font-size:14px;
+      color:#aaa;
+      margin-bottom:8px;
+    }
+
+    .card p{
+      font-size:28px;
+      font-weight:bold;
+    }
+
+    .toolbar{
+      margin-bottom:20px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      background:#171a21;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    th{
+      background:#202530;
+      color:#aaa;
+      font-size:12px;
+      text-align:left;
+      padding:12px;
+    }
+
+    td{
+      padding:12px;
+      border-top:1px solid #2b2f3a;
+      vertical-align:top;
+    }
+
+    tr:hover{
+      background:#1c2029;
+    }
+
+    textarea{
+      min-height:60px;
+    }
+
+    .hidden{
+      display:none;
+    }
+
+    .welcome{
+      font-size:14px;
+      color:#aaa;
+    }
+
+    .loading{
+      text-align:center;
+      padding:30px;
+      color:#aaa;
+    }
+
+    @media(max-width:700px){
+
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr{
+        display:block;
+      }
+
+      thead{
+        display:none;
+      }
+
+      tr{
+        margin-bottom:15px;
+        background:#171a21;
+        border-radius:10px;
+        padding:10px;
+      }
+
+      td{
+        border:none;
+        padding:8px 0;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- LOGIN -->
+
+  <div id="loginScreen">
+
+    <div class="login-box">
+
+      <h2>DropX Leads Login</h2>
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+      />
+
+      <br><br>
+
+      <button onclick="login()">
+        Login
+      </button>
+
+    </div>
+
   </div>
 
-  <div class="card">
-    <h2>Leads</h2>
-    <div id="leads">Loading...</div>
+  <!-- APP -->
+
+  <div
+    id="app"
+    class="hidden"
+  >
+
+    <div class="topbar">
+
+      <div class="logo">
+        DropX Leads
+      </div>
+
+      <div
+        class="welcome"
+        id="welcome"
+      ></div>
+
+    </div>
+
+    <div class="container">
+
+      <!-- STATS -->
+
+      <div
+        class="stats"
+        id="stats"
+      >
+
+        <div class="card">
+          <h3>Total Leads</h3>
+          <p id="totalLeads">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Pending</h3>
+          <p id="pendingLeads">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Call Back</h3>
+          <p id="callbackLeads">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Interview</h3>
+          <p id="interviewLeads">0</p>
+        </div>
+
+      </div>
+
+      <!-- TOOLBAR -->
+
+      <div class="toolbar">
+
+        <button onclick="loadLeads()">
+          Refresh Leads
+        </button>
+
+      </div>
+
+      <!-- TABLE -->
+
+      <div style="overflow:auto;">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Name</th>
+
+              <th>Phone</th>
+
+              <th>Station</th>
+
+              <th>Job Type</th>
+
+              <th>Status</th>
+
+              <th>Remarks</th>
+
+              <th>Action</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody id="leadTable">
+
+            <tr>
+              <td
+                colspan="7"
+                class="loading"
+              >
+                Loading...
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
   </div>
 
   <script>
 
-    const API_URL = 'https://script.google.com/macros/s/AKfycbxhCWZfHaNhaNJgfAZaUad6EhdtGj5yWRhw2mbFqN8d_1RRcQwJTFQFm869I0w0vr2SFw/exec';
+    const API =
+    'https://script.google.com/macros/s/AKfycbyNJy1nNbv7CoeyoZw59ZuABesNHi1j2VO1rnzYe9BX2lbLboCG9gsvKlGeatKC6O_91Q/exec';
 
-    async function api(action, payload = {}) {
-      try {
+    let CURRENT_USER = null;
 
-        const response = await fetch(API_URL + '?action=' + action, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
+    // LOGIN
 
-        return await response.json();
+    async function login(){
 
-      } catch (err) {
-        console.error(err);
-        alert('API Error');
-      }
-    }
+      const email =
+        document.getElementById('email')
+        .value
+        .trim();
 
+      if(!email){
 
-    async function loadDashboard() {
-
-      const data = await api('dashboard');
-
-      document.getElementById('dashboard').innerHTML = `
-        <p>Total Leads: ${data.total || 0}</p>
-        <p>Pending: ${data.pending || 0}</p>
-        <p>Interview: ${data.interview || 0}</p>
-      `;
-    }
-
-
-    async function loadLeads() {
-
-      const leads = await api('leads');
-
-      const container = document.getElementById('leads');
-
-      if (!Array.isArray(leads)) {
-        container.innerHTML = 'No leads found';
+        alert('Enter email');
         return;
       }
 
-      container.innerHTML = '';
+      try{
 
-      leads.forEach(lead => {
+        const res = await fetch(
+          API +
+          '?action=login&email=' +
+          encodeURIComponent(email)
+        );
 
-        const div = document.createElement('div');
-        div.className = 'lead';
+        const data = await res.json();
 
-        div.innerHTML = `
-          <h3>${lead.full_name || 'No Name'}</h3>
-          <p>${lead.phone || ''}</p>
-          <p>${lead.station_name || ''}</p>
+        if(!data.success){
 
-          <select onchange="updateStatus('${lead.lead_id}', this.value)">
-            <option value="">Select Status</option>
-            <option value="No Response">No Response</option>
-            <option value="Call Back">Call Back</option>
-            <option value="Interview Scheduled">Interview Scheduled</option>
-            <option value="Not Interested">Not Interested</option>
-          </select>
+          alert(data.message || 'Login failed');
+          return;
+        }
+
+        CURRENT_USER = data.user;
+
+        document.getElementById('loginScreen')
+          .classList.add('hidden');
+
+        document.getElementById('app')
+          .classList.remove('hidden');
+
+        document.getElementById('welcome')
+          .innerText =
+          'Welcome ' + CURRENT_USER.name;
+
+        loadDashboard();
+
+        loadLeads();
+
+      }catch(err){
+
+        alert(err);
+      }
+    }
+
+    // DASHBOARD
+
+    async function loadDashboard(){
+
+      try{
+
+        const res = await fetch(
+          API + '?action=dashboard'
+        );
+
+        const data = await res.json();
+
+        document.getElementById('totalLeads')
+          .innerText =
+          data.stats.total || 0;
+
+        document.getElementById('pendingLeads')
+          .innerText =
+          data.stats.pending || 0;
+
+        document.getElementById('callbackLeads')
+          .innerText =
+          data.stats.callback || 0;
+
+        document.getElementById('interviewLeads')
+          .innerText =
+          data.stats.interview || 0;
+
+      }catch(err){
+
+        console.error(err);
+      }
+    }
+
+    // LOAD LEADS
+
+    async function loadLeads(){
+
+      const tbody =
+        document.getElementById('leadTable');
+
+      tbody.innerHTML =
+      `
+        <tr>
+          <td colspan="7" class="loading">
+            Loading...
+          </td>
+        </tr>
+      `;
+
+      try{
+
+        const res = await fetch(
+          API + '?action=getLeads'
+        );
+
+        const data = await res.json();
+
+        tbody.innerHTML = '';
+
+        if(!data.data || !data.data.length){
+
+          tbody.innerHTML =
+          `
+            <tr>
+              <td colspan="7" class="loading">
+                No Leads Found
+              </td>
+            </tr>
+          `;
+
+          return;
+        }
+
+        data.data.forEach(lead => {
+
+          tbody.innerHTML +=
+
+          `
+            <tr>
+
+              <td>
+                ${lead.full_name || ''}
+              </td>
+
+              <td>
+                ${lead.phone || ''}
+              </td>
+
+              <td>
+                ${lead.station_code || ''}
+              </td>
+
+              <td>
+                ${lead.job_type || ''}
+              </td>
+
+              <td>
+
+                <select
+                  id="status_${lead.lead_id}"
+                >
+
+                  <option value="">
+                    Select
+                  </option>
+
+                  <option
+                    value="No Response"
+                    ${lead.call_status === 'No Response' ? 'selected' : ''}
+                  >
+                    No Response
+                  </option>
+
+                  <option
+                    value="Call Back"
+                    ${lead.call_status === 'Call Back' ? 'selected' : ''}
+                  >
+                    Call Back
+                  </option>
+
+                  <option
+                    value="Interview Scheduled"
+                    ${lead.call_status === 'Interview Scheduled' ? 'selected' : ''}
+                  >
+                    Interview Scheduled
+                  </option>
+
+                  <option
+                    value="Not Interested"
+                    ${lead.call_status === 'Not Interested' ? 'selected' : ''}
+                  >
+                    Not Interested
+                  </option>
+
+                </select>
+
+              </td>
+
+              <td>
+
+                <textarea
+                  id="remarks_${lead.lead_id}"
+                >${lead.remarks || ''}</textarea>
+
+              </td>
+
+              <td>
+
+                <button
+                  onclick="saveLead('${lead.lead_id}')"
+                >
+                  Save
+                </button>
+
+              </td>
+
+            </tr>
+          `;
+        });
+
+      }catch(err){
+
+        console.error(err);
+
+        tbody.innerHTML =
+        `
+          <tr>
+            <td colspan="7" class="loading">
+              Failed to load leads
+            </td>
+          </tr>
         `;
+      }
+    }
 
-        container.appendChild(div);
-      });
+    // SAVE LEAD
+
+    async function saveLead(leadId){
+
+      const status =
+        document.getElementById(
+          'status_' + leadId
+        ).value;
+
+      const remarks =
+        document.getElementById(
+          'remarks_' + leadId
+        ).value;
+
+      try{
+
+        const url =
+          API +
+          '?action=updateLead' +
+          '&lead_id=' + encodeURIComponent(leadId) +
+          '&call_status=' + encodeURIComponent(status) +
+          '&remarks=' + encodeURIComponent(remarks);
+
+        const res = await fetch(url);
+
+        const data = await res.json();
+
+        if(data.success){
+
+          alert('Lead updated');
+
+          loadDashboard();
+
+        }else{
+
+          alert(data.message || 'Update failed');
+        }
+
+      }catch(err){
+
+        alert(err);
+      }
+    }
+
+  </script>
+
+</body>
+
 </html>
