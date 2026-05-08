@@ -746,8 +746,41 @@ async function callApi(action, params = {}) {
     console.error("API Error:", e);
     return { error: e.toString() };
   }
-}
 
+}
+async function syncData() {
+
+  const btn = document.getElementById("syncBtn");
+
+  try {
+
+    btn.classList.add("spin");
+
+    const result = await callApi("syncLeads");
+
+    console.log(result);
+
+    if (result.error) {
+      alert(result.error);
+      return;
+    }
+
+    alert("Synced: " + result.synced);
+
+    await loadInitialData();
+
+  } catch(err) {
+
+    console.error(err);
+    alert(err);
+
+  } finally {
+
+    btn.classList.remove("spin");
+
+  }
+}
+  
   async function loadInitialData() {
 
   const data = await callApi("getInitialData");
