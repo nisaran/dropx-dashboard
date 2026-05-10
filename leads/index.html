@@ -24,7 +24,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:13px}
 
-/* ── LOGIN SCREEN ── */
+/* â”€â”€ LOGIN SCREEN â”€â”€ */
 #login-screen{display:none;position:fixed;inset:0;background:var(--bg);z-index:999;
   flex-direction:column;align-items:center;justify-content:center;gap:24px}
 #login-screen.show{display:flex}
@@ -40,7 +40,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .login-btn svg{flex-shrink:0}
 .login-bar{height:3px;width:100%;background:linear-gradient(90deg,var(--dx-yellow),var(--dx-orange),var(--dx-red),var(--dx-pink));border-radius:0 0 14px 14px;margin-top:28px}
 
-/* ── LAYOUT ── */
+/* â”€â”€ LAYOUT â”€â”€ */
 #app{display:flex;height:100vh;overflow:hidden}
 #side{width:210px;min-width:210px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column}
 #main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
@@ -48,9 +48,9 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
   display:flex;align-items:center;padding:0 20px;gap:12px;position:relative}
 #bar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,var(--dx-yellow),var(--dx-orange),var(--dx-red),var(--dx-pink))}
-#content{flex:1;overflow:hidden;display:flex;flex-direction:column}
+#content{flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0}
 
-/* ── SIDEBAR ── */
+/* â”€â”€ SIDEBAR â”€â”€ */
 .logo{padding:16px 16px 14px;border-bottom:1px solid var(--border)}
 .logo-sub{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
 .nav{flex:1;padding:8px;overflow-y:auto}
@@ -72,7 +72,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .rbadge.cluster{background:rgba(245,168,0,.12);color:var(--amber)}
 .rbadge.tl{background:rgba(224,107,0,.12);color:var(--dx-orange)}
 
-/* ── TOPBAR ── */
+/* â”€â”€ TOPBAR â”€â”€ */
 .page-title{font-size:14px;font-weight:600;flex:1}
 .sync-btn{display:flex;align-items:center;gap:5px;padding:6px 12px;border:1px solid var(--border2);
   border-radius:6px;background:transparent;color:var(--text2);font-size:11px;cursor:pointer;
@@ -87,8 +87,11 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .fetch-btn:hover{border-color:var(--dx-yellow)}
 .fetch-btn.spin svg{animation:spin 1s linear infinite}
 .fetch-note{width:100%;font-size:10px;color:var(--text3);padding:0 1px 2px}
+.btn-pause{border-color:rgba(245,168,0,.45);background:rgba(245,168,0,.1);color:var(--dx-yellow)}
+.btn-resume{border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.1);color:var(--green)}
+.btn-stop{border-color:rgba(192,40,42,.35);background:rgba(192,40,42,.08);color:var(--dx-red)}
 
-/* ── STATS ── */
+/* â”€â”€ STATS â”€â”€ */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;padding:16px 16px 0}
 .stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;cursor:pointer;transition:border-color .12s}
 .stat:hover{border-color:var(--border2)}
@@ -100,7 +103,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .s-callback .stat-v{color:var(--dx-pink)}
 .s-stale .stat-v{color:var(--dx-red)}
 
-/* ── FILTER BAR ── */
+/* â”€â”€ FILTER BAR â”€â”€ */
 .filters{display:flex;align-items:center;gap:6px;padding:10px 16px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
 .fi input,.fi select{background:var(--bg2);border:1px solid var(--border);border-radius:6px;
   padding:5px 8px;color:var(--text);font-size:12px;font-family:inherit;height:30px}
@@ -116,25 +119,32 @@ select[multiple] option{padding:3px 8px;border-radius:3px}
 select[multiple] option:checked{background:rgba(212,39,90,.15);color:var(--accent)}
 .filter-count{font-size:11px;color:var(--text3);margin-left:auto;white-space:nowrap}
 .filter-hint{font-size:10px;color:var(--text3);margin-top:2px}
-.ms{position:relative;min-width:180px}
-.ms-btn{height:30px;min-width:180px;max-width:240px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;font-family:inherit;padding:0 28px 0 9px;text-align:left;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ms{position:relative;min-width:160px}
+.ms-btn{height:30px;min-width:160px;max-width:230px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;font-family:inherit;padding:0 28px 0 9px;text-align:left;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ms-btn:after{content:'v';position:absolute;right:9px;top:6px;color:var(--text3);font-size:11px}
 .ms.open .ms-btn{border-color:var(--accent)}
-.ms-menu{display:none;position:absolute;z-index:40;top:34px;left:0;width:260px;max-width:calc(100vw - 24px);background:var(--bg2);border:1px solid var(--border2);border-radius:8px;box-shadow:0 14px 38px rgba(0,0,0,.45);padding:8px}
+.ms-menu{display:none;position:absolute;z-index:40;top:34px;left:0;width:220px;max-width:calc(100vw - 24px);background:var(--bg2);border:1px solid var(--border2);border-radius:8px;box-shadow:0 14px 38px rgba(0,0,0,.28);padding:7px}
 .ms.open .ms-menu{display:block}
-.ms-search{width:100%;height:30px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;font-family:inherit;padding:6px 8px;margin-bottom:6px}
+.ms-search{width:100%;height:28px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;font-family:inherit;padding:5px 8px;margin-bottom:5px}
 .ms-actions{display:flex;gap:6px;margin-bottom:6px}
 .ms-actions button{height:24px;border:1px solid var(--border2);background:transparent;color:var(--text2);border-radius:5px;font-size:10px;font-family:inherit;padding:0 7px;cursor:pointer}
-.ms-list{max-height:210px;overflow:auto}
-.ms-item{display:flex;align-items:center;gap:8px;padding:6px 5px;border-radius:5px;color:var(--text2);font-size:12px;cursor:pointer}
+.ms-list{max-height:190px;overflow:auto}
+.ms-item{display:grid;grid-template-columns:16px minmax(0,1fr);align-items:center;gap:7px;padding:5px 4px;border-radius:5px;color:var(--text2);font-size:12px;cursor:pointer;line-height:1.15}
 .ms-item:hover{background:rgba(255,255,255,.04);color:var(--text)}
-.ms-item input{accent-color:var(--accent)}
+.ms-item input{accent-color:var(--accent);width:13px;height:13px;margin:0}
+.ms-item span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ms-empty{padding:10px;color:var(--text3);font-size:12px;text-align:center}
 
-/* ── TABLE ── */
-.tbl-wrap{flex:1;overflow:auto;padding:0 16px 16px}
-.tbl-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:12px}
+/* â”€â”€ TABLE â”€â”€ */
+.tbl-wrap{flex:1;overflow:auto;padding:0 16px 16px;min-height:0;max-width:100%;scrollbar-gutter:stable}
+.tbl-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:auto;margin-top:12px;max-width:100%;scrollbar-gutter:stable}
 table{width:100%;border-collapse:collapse}
+.tbl-card table{min-width:980px}
+.sort-th{cursor:pointer;user-select:none}
+.sort-th:hover{color:var(--accent)}
+.sort-th:after{content:' â†•';font-size:9px;color:var(--text3)}
+.sort-th.asc:after{content:' â†‘';color:var(--accent)}
+.sort-th.desc:after{content:' â†“';color:var(--accent)}
 th{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;
   padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);
   background:var(--bg3);white-space:nowrap;position:sticky;top:0;z-index:1}
@@ -142,7 +152,7 @@ td{padding:0;border-bottom:1px solid rgba(37,40,48,.7);vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(255,255,255,.015)}
 
-/* ── CELLS ── */
+/* â”€â”€ CELLS â”€â”€ */
 .cell{padding:7px 10px;min-height:42px;display:flex;align-items:center;overflow:hidden}
 .c-name{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}
 .c-sub{font-size:10px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -157,6 +167,8 @@ tr:hover td{background:rgba(255,255,255,.015)}
 .j-DCD{background:rgba(192,40,42,.08);color:var(--dx-red)}
 .j-SA{background:rgba(167,139,250,.08);color:#a78bfa}
 .j-DA{background:rgba(224,107,0,.08);color:var(--dx-orange)}
+.j-VAN{background:rgba(59,130,246,.08);color:#3b82f6}
+.j-SSA{background:rgba(20,184,166,.08);color:var(--teal)}
 .j-TL,.j-SI,.j-SM,.j-HI,.j-STM,.j-CLM{background:rgba(20,184,166,.08);color:var(--teal)}
 .profile-details{margin-top:4px;font-size:10px;color:var(--text2);max-width:360px}
 .profile-details summary{cursor:pointer;color:var(--dx-yellow);list-style:none;font-weight:600}
@@ -167,12 +179,12 @@ tr:hover td{background:rgba(255,255,255,.015)}
 .profile-grid span{display:block;white-space:normal;word-break:break-word;color:var(--text2)}
 .info-dot{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;border:1px solid var(--text3);color:var(--text3);font-size:9px;cursor:pointer;margin-left:4px;font-style:normal}
 
-/* ── LAST UPDATED ── short, compact ── */
+/* â”€â”€ LAST UPDATED â”€â”€ short, compact â”€â”€ */
 .c-ts{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;white-space:nowrap;
   overflow:hidden;text-overflow:ellipsis;line-height:1.3}
 .c-ts span{display:block;font-size:9px;color:var(--text3);opacity:.7}
 
-/* ── INLINE EDITABLE ── */
+/* â”€â”€ INLINE EDITABLE â”€â”€ */
 .status-sel{width:100%;min-height:42px;background:transparent;border:none;color:var(--text);
   font-size:12px;font-family:inherit;cursor:pointer;padding:0 10px;
   appearance:none;-webkit-appearance:none}
@@ -192,25 +204,29 @@ tr:hover td{background:rgba(255,255,255,.015)}
 .final-sel:focus{outline:none;background:var(--bg3)}
 .final-sel option{background:var(--bg2)}
 
-/* ── SAVING INDICATOR ── */
+/* â”€â”€ SAVING INDICATOR â”€â”€ */
 .dot-save{display:inline-block;width:5px;height:5px;border-radius:50%;
   background:var(--amber);animation:pulse .8s ease infinite;margin-left:3px;vertical-align:middle}
 .dot-ok{background:var(--green);animation:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* ── STALE ALERT ── */
+/* â”€â”€ STALE ALERT â”€â”€ */
 .stale-bar{display:flex;align-items:center;gap:10px;margin:12px 16px 0;
   background:rgba(192,40,42,.07);border:1px solid rgba(192,40,42,.2);
-  border-radius:var(--r);padding:8px 14px;font-size:12px;color:var(--text2)}
+  border-radius:var(--r);padding:8px 14px;font-size:12px;color:var(--text2);cursor:pointer}
 .stale-bar strong{color:var(--dx-red)}
 .dash-tools{display:flex;align-items:center;gap:8px;padding:12px 16px 0;flex-wrap:wrap}
-.dash-grid{display:grid;grid-template-columns:minmax(520px,1fr) minmax(520px,1fr);gap:12px;padding:12px 16px 16px;overflow:auto;align-items:start}
+.dash-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:12px;padding:12px 16px 16px;overflow:visible;align-items:start}
+#page-dash .stats,#page-dash .dash-tools,#page-dash .stale-bar{flex-shrink:0}
+#dash-tbl{flex:1;min-height:0;overflow:auto;scrollbar-gutter:stable}
+.dash-col{display:flex;flex-direction:column;gap:12px;min-width:0}
 .dash-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;min-width:0}
 .dash-card-h{padding:11px 12px;border-bottom:1px solid var(--border);font-size:12px;font-weight:600}
-.dash-card-scroll{overflow:auto;max-height:420px}
-.dash-card-scroll table{min-width:760px}
+.dash-card-scroll{overflow:auto;max-height:52vh;min-height:0;width:100%;padding-bottom:2px;scrollbar-gutter:stable}
+.dash-card-scroll table{min-width:720px}
 .dash-table{width:100%;border-collapse:collapse}
-.dash-table th,.dash-table td{padding:8px 9px;border-bottom:1px solid rgba(37,40,48,.7);font-size:11px}
+.dash-table th,.dash-table td{padding:7px 8px;border-bottom:1px solid rgba(37,40,48,.7);font-size:10.8px}
+.dash-table th:last-child,.dash-table td:last-child{padding-right:14px}
 .dash-table th{position:sticky;top:0;z-index:1;background:var(--bg3);color:var(--text3)}
 .dash-insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;padding:12px}
 .insight-tile{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px}
@@ -221,33 +237,41 @@ tr:hover td{background:rgba(255,255,255,.015)}
 .queue-tile:hover{border-color:var(--border2)}
 .queue-tile b{display:block;font-size:20px;margin-bottom:4px}
 .queue-tile span{font-size:11px;color:var(--text2)}
+.action-list{padding:8px 12px 12px}
+.action-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.action-row:last-child{border-bottom:none}
+.action-row:hover b{color:var(--accent)}
+.action-row b{display:block;font-size:12px}
+.action-row span{font-size:10px;color:var(--text3)}
+.action-row strong{font-size:15px;color:var(--dx-red)}
 .bar-row{display:flex;align-items:center;gap:8px;margin:10px 12px}
 .bar-label{width:58px;font-size:11px;color:var(--text2);font-family:'DM Mono',monospace}
 .bar-track{height:8px;flex:1;background:var(--bg3);border-radius:99px;overflow:hidden}
 .bar-fill{height:100%;background:linear-gradient(90deg,var(--dx-yellow),var(--dx-pink));border-radius:99px}
 .bar-num{width:36px;text-align:right;font-size:11px;color:var(--text3);font-family:'DM Mono',monospace}
 .legend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;padding:12px 16px 16px}
+#page-dash .legend-grid{display:none}
 .legend-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:10px}
 .legend-item b{font-family:'DM Mono',monospace;color:var(--accent);font-size:12px}
 .legend-item span{display:block;color:var(--text2);font-size:11px;margin-top:4px}
 
-/* ── LOADING / EMPTY ── */
+/* â”€â”€ LOADING / EMPTY â”€â”€ */
 .empty{padding:48px;text-align:center;color:var(--text3)}
 .spin-wrap{display:flex;align-items:center;justify-content:center;padding:48px}
 .spinner{width:20px;height:20px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
 .btn-spinner{width:13px;height:13px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
 
-/* ── PAGES ── */
-.page{display:none;flex-direction:column;height:100%;overflow:hidden}
+/* â”€â”€ PAGES â”€â”€ */
+.page{display:none;flex-direction:column;min-height:0;overflow:hidden;flex:1}
 .page.active{display:flex}
 
-/* ── INFO BANNER ── */
+/* â”€â”€ INFO BANNER â”€â”€ */
 .info-banner{display:flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(212,39,90,.05);
   border-bottom:1px solid rgba(212,39,90,.1);font-size:11px;color:var(--text3)}
 
-/* ── REPORTS ── */
-.report-wrap{padding:20px;overflow-y:auto;flex:1}
-.report-panel{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;max-width:980px}
+/* â”€â”€ REPORTS â”€â”€ */
+.report-wrap{padding:20px;overflow:auto;flex:1;min-height:0;max-width:100%;scrollbar-gutter:stable}
+.report-panel{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;max-width:980px;min-width:0}
 .report-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:14px}
 .report-field{display:flex;flex-direction:column;gap:5px}
 .report-field label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.7px}
@@ -272,15 +296,41 @@ tr:hover td{background:rgba(255,255,255,.015)}
 .sla-pill{display:inline-flex;margin-top:3px;background:rgba(192,40,42,.12);color:var(--dx-red);border:1px solid rgba(192,40,42,.28);border-radius:4px;padding:1px 5px;font-size:9px}
 .dup-pill{display:inline-flex;margin-top:3px;background:rgba(245,168,0,.12);color:var(--dx-yellow);border:1px solid rgba(245,168,0,.28);border-radius:4px;padding:1px 5px;font-size:9px}
 .report-note{font-size:11px;color:var(--text3)}
+.ad-spend-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:linear-gradient(135deg,rgba(245,168,0,.16),rgba(212,39,90,.10));
+  border:1px solid rgba(245,168,0,.32);border-radius:8px;padding:13px 16px;margin-bottom:12px}
+.ad-spend-summary .ad-spend-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.ad-spend-summary .ad-spend-value{font-size:26px;font-weight:800;line-height:1;color:var(--text)}
+.ad-spend-summary .ad-spend-meta{font-size:11px;color:var(--text2);text-align:right}
+.ad-spend-summary strong{color:var(--dx-yellow)}
+.ads-controls{display:grid;grid-template-columns:minmax(220px,1.2fr) repeat(5,minmax(130px,.7fr));gap:8px;margin-top:14px;align-items:start}
+.ads-controls input,.ads-controls select{width:100%;height:30px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;font-family:inherit;padding:5px 8px}
+.ads-table{min-width:1240px}
+.ad-status-active{color:var(--green)}
+.ad-status-paused{color:var(--dx-yellow)}
 
-/* ── MOBILE ── */
+/* â”€â”€ MOBILE â”€â”€ */
 @media(max-width:700px){
   #side{display:none}
   #mob-nav{display:flex}
-  .stats{grid-template-columns:1fr 1fr}
-  #app{height:calc(100vh - 56px)}
+  .stats{display:flex;overflow-x:auto;gap:8px;padding-bottom:2px}
+  .stat{min-width:132px;padding:10px 11px}
+  .stat-v{font-size:21px}
+  #app{height:100vh;padding-bottom:56px}
   #bar{padding:0 12px}
-  .dash-grid{grid-template-columns:1fr;padding-bottom:72px}
+  #content{padding-bottom:8px}
+  .dash-grid{grid-template-columns:1fr;padding:10px 10px 72px}
+  .dash-tools,.stats,.filters{padding-left:10px;padding-right:10px}
+  .stale-bar{margin-left:10px;margin-right:10px}
+  .dash-card-scroll{max-height:55vh}
+  .dash-insights{grid-template-columns:1fr 1fr;padding:10px}
+  .insight-tile{padding:9px}
+  .queue-grid{grid-template-columns:1fr 1fr;padding:10px}
+  .queue-tile{padding:9px}
+  .legend-grid{display:none}
+  .report-wrap{padding:10px 10px 72px}
+  .report-grid{grid-template-columns:1fr}
+  .ads-controls{grid-template-columns:1fr}
   .tbl-card table{display:none}
   .lead-cards{display:block}
   .lead-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:11px;margin-top:10px}
@@ -291,12 +341,29 @@ tr:hover td{background:rgba(255,255,255,.015)}
   .lead-card label{display:block;font-size:10px;color:var(--text3);text-transform:uppercase;margin-bottom:3px}
   .lead-card select,.lead-card input,.lead-card textarea{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;color:var(--text);font-family:inherit;font-size:12px;padding:7px}
   .lead-card textarea{min-height:58px;grid-column:1/-1}
+  .ad-cards{display:block}
+  .ad-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:11px;margin-top:10px}
+  .ad-card-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:9px}
+  .ad-title{font-size:13px;font-weight:700}
+  .ad-meta{font-size:10px;color:var(--text3);margin-top:2px}
+  .ad-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+  .ad-grid div{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:8px}
+  .ad-grid b{display:block;font-size:14px}
+  .ad-grid span{font-size:10px;color:var(--text3)}
+  .ad-actions{display:flex;gap:6px;flex-wrap:wrap}
+  .ad-spend-summary{align-items:flex-start;flex-direction:column;padding:12px;margin-bottom:10px}
+  .ad-spend-summary .ad-spend-meta{text-align:left}
+  .ad-spend-summary .ad-spend-value{font-size:24px}
 }
-@media(min-width:701px){.lead-cards{display:none}}
+@media(max-width:1180px){
+  .dash-grid{grid-template-columns:1fr}
+  .dash-card-scroll{max-height:48vh}
+}
+@media(min-width:701px){.lead-cards,.ad-cards{display:none}}
 #mob-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg2);
-  border-top:1px solid var(--border);z-index:50;padding:6px 0}
+  border-top:1px solid var(--border);z-index:50;padding:6px 0;overflow-x:auto}
 .mob-nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
-  padding:6px 4px;cursor:pointer;color:var(--text3);font-size:9px;text-transform:uppercase;letter-spacing:.5px}
+  padding:6px 4px;cursor:pointer;color:var(--text3);font-size:9px;text-transform:uppercase;letter-spacing:.5px;min-width:72px}
 .mob-nav-item.active{color:var(--accent)}
 
 ::-webkit-scrollbar{width:4px;height:4px}
@@ -373,7 +440,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
       <div class="u-av" id="uav">?</div>
       <div style="min-width:0">
         <div class="u-name" id="uname">...</div>
-        <div class="u-role"><span class="rbadge" id="urole">—</span></div>
+        <div class="u-role"><span class="rbadge" id="urole">â€”</span></div>
       </div>
     </div>
   </div>
@@ -399,15 +466,15 @@ tr:hover td{background:rgba(255,255,255,.015)}
         <div class="stat s-pending" onclick="nav('leads',{status:'No Response'})"><div class="stat-l">No Response</div><div class="stat-v" id="sv-noresponse">-</div></div>
         <div class="stat s-callback" onclick="nav('leads',{status:'Call Back'})"><div class="stat-l">Call Back</div><div class="stat-v" id="sv-callback">-</div></div>
         <div class="stat s-interview" onclick="nav('interviews')"><div class="stat-l">Interviews</div><div class="stat-v" id="sv-interview">-</div></div>
-        <div class="stat s-total"><div class="stat-l">Joined</div><div class="stat-v" id="sv-joined">-</div></div>
-        <div class="stat s-stale"><div class="stat-l">24h+ Pending <span class="info-dot" onclick="showStaleInfo(event)">i</span></div><div class="stat-v" id="sv-stale">-</div></div>
+        <div class="stat s-total" onclick="nav('leads',{finalStatus:'Joined'})"><div class="stat-l">Joined</div><div class="stat-v" id="sv-joined">-</div></div>
+        <div class="stat s-stale" onclick="openStaleLeads()"><div class="stat-l">24h+ Pending <span class="info-dot" onclick="showStaleInfo(event)">i</span></div><div class="stat-v" id="sv-stale">-</div></div>
       </div>
       <div class="dash-tools">
         <div id="ms-dash-station" class="ms" data-label="All Stations"></div>
         <div id="ms-dash-cluster" class="ms" data-label="All Clusters"></div>
         <span class="filter-count" id="fc-dash">-</span>
       </div>
-      <div id="stale-bar" style="display:none" class="stale-bar">
+      <div id="stale-bar" style="display:none" class="stale-bar" onclick="openStaleLeads()">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><path d="M8 5v3M8 11v.5"/></svg>
         <span><strong id="stale-n">0</strong> leads are not properly attended even after 24+ hrs <span class="info-dot" onclick="showStaleInfo(event)">i</span> <span id="stale-names" style="color:var(--text3)"></span></span>
       </div>
@@ -420,35 +487,17 @@ tr:hover td{background:rgba(255,255,255,.015)}
       <div class="filters">
         <div class="fi">
           <svg class="search-icon" width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="6" cy="6" r="4"/><path d="M11 11l3 3"/></svg>
-          <input type="text" id="f-search" placeholder="Name, phone, city…" oninput="applyFilters('leads')">
+          <input type="text" id="f-search" placeholder="Name, phone, cityâ€¦" oninput="applyFilters('leads')">
         </div>
-        <div class="fi">
-          <select id="f-status" onchange="applyFilters('leads')">
-            <option value="">All Status</option>
-            <option value="__BLANK__">Blank</option>
-            <option>No Response</option><option>Not Interested</option>
-            <option>Call Back</option><option>Long Distance</option>
-            <option>Interview Scheduled</option><option>Not Fit</option>
-          </select>
-        </div>
+        <div id="ms-f-status" class="ms" data-label="All Status"></div>
         <div id="ms-f-station" class="ms" data-label="All Stations"></div>
         <div id="ms-f-cluster" class="ms" data-label="All Clusters"></div>
-        <div class="fi">
-          <select id="f-job" onchange="applyFilters('leads')">
-            <option value="">All Roles</option>
-            <option value="DA">Delivery Associate</option><option value="PC">Picker</option>
-            <option value="WM">Wish Master</option><option value="DCD">Driver cum DA</option>
-            <option value="SA">Support Associate</option><option value="TL">Team Leader</option>
-            <option value="SI">Shift Incharge</option><option value="SM">Store Manager</option>
-            <option value="STM">Station Manager</option><option value="HI">Hub Incharge</option>
-            <option value="CLM">Cluster Manager</option>
-          </select>
-        </div>
+        <div id="ms-f-job" class="ms" data-label="All Roles"></div>
         <button class="fetch-btn" id="fetch-leads" onclick="fetchNow('leads')">
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
           Fetch Leads
         </button>
-        <span class="filter-count" id="fc-leads">—</span>
+        <span class="filter-count" id="fc-leads">â€”</span>
         <div class="fetch-note" id="fetch-note-leads"></div>
       </div>
       <div class="tbl-wrap" style="padding-top:0" id="leads-tbl"></div>
@@ -459,22 +508,12 @@ tr:hover td{background:rgba(255,255,255,.015)}
       <div class="filters">
         <div class="fi">
           <svg class="search-icon" width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="6" cy="6" r="4"/><path d="M11 11l3 3"/></svg>
-          <input type="text" id="pf-search" placeholder="Name, phone, city…" oninput="applyFilters('pending')">
+          <input type="text" id="pf-search" placeholder="Name, phone, cityâ€¦" oninput="applyFilters('pending')">
         </div>
         <div id="ms-pf-station" class="ms" data-label="All Stations"></div>
         <div id="ms-pf-cluster" class="ms" data-label="All Clusters"></div>
-        <div class="fi">
-          <select id="pf-age" onchange="applyFilters('pending')" title="Last updated age">
-            <option value="">All Updated</option>
-            <option value="never">Never Updated</option>
-            <option value="lt30"><30 min</option>
-            <option value="gt60">Above 1 hr</option>
-            <option value="gt120">Above 2 hr</option>
-            <option value="gt24h">Above 24 hr</option>
-            <option value="gt2d">Above 2 days</option>
-          </select>
-        </div>
-        <span class="filter-count" id="fc-pending">—</span>
+        <div id="ms-pf-age" class="ms" data-label="All Updated"></div>
+        <span class="filter-count" id="fc-pending">â€”</span>
       </div>
       <div class="tbl-wrap" style="padding-top:0" id="pending-tbl"></div>
     </div>
@@ -484,7 +523,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
       <div class="filters">
         <div class="fi">
           <svg class="search-icon" width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="6" cy="6" r="4"/><path d="M11 11l3 3"/></svg>
-          <input type="text" id="if-search" placeholder="Name, phone…" oninput="applyFilters('interviews')">
+          <input type="text" id="if-search" placeholder="Name, phoneâ€¦" oninput="applyFilters('interviews')">
         </div>
         <div id="ms-if-station" class="ms" data-label="All Stations"></div>
         <div id="ms-if-cluster" class="ms" data-label="All Clusters"></div>
@@ -492,21 +531,12 @@ tr:hover td{background:rgba(255,255,255,.015)}
           <input type="date" id="if-date" autocomplete="off" onchange="applyFilters('interviews')" title="Interview date">
         </div>
         <button class="fetch-btn" onclick="document.getElementById('if-date').value='';applyFilters('interviews')" title="Show all interview dates">All Dates</button>
-        <div class="fi">
-          <select id="if-final" onchange="applyFilters('interviews')">
-            <option value="">All Final Status</option>
-            <option>Joined</option>
-            <option>Dropped</option>
-            <option>No Response</option>
-            <option>Not Interested</option>
-            <option>Not Fit</option>
-          </select>
-        </div>
+        <div id="ms-if-final" class="ms" data-label="All Final Status"></div>
         <button class="fetch-btn" id="fetch-interviews" onclick="fetchNow('interviews')">
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
           Fetch Interviews
         </button>
-        <span class="filter-count" id="fc-interviews">—</span>
+        <span class="filter-count" id="fc-interviews">â€”</span>
         <div class="fetch-note" id="fetch-note-interviews"></div>
       </div>
       <div class="tbl-wrap" style="padding-top:0" id="interviews-tbl"></div>
@@ -521,11 +551,12 @@ tr:hover td{background:rgba(255,255,255,.015)}
           <div class="report-grid">
             <div class="report-field">
               <label>Report type</label>
-              <select id="r-type">
+              <select id="r-type" onchange="reportTypeChanged()">
                 <option value="leads">Lead Data</option>
                 <option value="interviews">Interview Scheduled</option>
                 <option value="spend">Spend Analysis</option>
-                <option value="weeklyspend">Ad Spend by Day / Week / Month</option>
+                <option value="weeklyspend">Ad + Lead Spend by Day / Week / Month</option>
+                <option value="dailyleads">Daily Lead Generation</option>
                 <option value="nostatus">No Status Leads</option>
                 <option value="effort">No Response / Call Back Effort</option>
               </select>
@@ -556,13 +587,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
             </div>
             <div class="report-field">
               <label>Status</label>
-              <select id="r-status">
-                <option value="">All Status</option>
-                <option value="__BLANK__">Blank</option>
-                <option>No Response</option><option>Not Interested</option>
-                <option>Call Back</option><option>Long Distance</option>
-                <option>Interview Scheduled</option><option>Not Fit</option>
-              </select>
+              <div id="ms-r-status" class="ms" data-label="All Status"></div>
             </div>
             <div class="report-field">
               <label>No status age</label>
@@ -608,10 +633,18 @@ tr:hover td{background:rgba(255,255,255,.015)}
           <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
             <div>
               <div style="font-size:15px;font-weight:600;margin-bottom:4px">Active Ads</div>
-              <div style="font-size:12px;color:var(--text3)">Only active Meta ads with spend are shown.</div>
+              <div style="font-size:12px;color:var(--text3)">Active and paused Meta ads with spend are shown.</div>
               <div style="font-size:11px;color:var(--text3);margin-top:4px" id="ads-api-status">Meta sync status will appear here.</div>
             </div>
             <button class="report-btn" onclick="loadAds(true)">Refresh</button>
+          </div>
+          <div class="ads-controls">
+            <input type="search" id="ad-search" placeholder="Search ad, station, role..." oninput="applyAdFilters()">
+            <div id="ms-ad-filter-status" class="ms" data-label="All Status"></div>
+            <div id="ms-ad-filter-station" class="ms" data-label="All Stations"></div>
+            <div id="ms-ad-filter-cluster" class="ms" data-label="All Clusters"></div>
+            <div id="ms-ad-filter-role" class="ms" data-label="All Roles"></div>
+            <select id="ad-sort" onchange="setAdSort(this.value)"><option value="total_spend:desc">Spend high to low</option><option value="budget_per_day:desc">Budget high to low</option><option value="total_leads:desc">Leads high to low</option><option value="created_at:desc">Newest created</option><option value="ad_name:asc">Ad name A-Z</option><option value="station_code:asc">Station A-Z</option></select>
           </div>
           <div id="ads-list" style="margin-top:14px"></div>
         </div>
@@ -718,110 +751,23 @@ tr:hover td{background:rgba(255,255,255,.015)}
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 2h7l3 3v9H3z"/><path d="M10 2v3h3M6 9h4M6 12h4"/></svg>
     Reports
   </div>
+  <div class="mob-nav-item" id="mob-ads" onclick="nav('ads')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12V4h10v8z"/><path d="M5 10l2-2 2 1 2-3"/></svg>
+    Ads
+  </div>
+  <div class="mob-nav-item" id="mob-team" onclick="nav('team')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2"/><circle cx="11" cy="6" r="2"/><path d="M2 13c.5-2 2-3 3-3s2.5 1 3 3M8 13c.5-2 2-3 3-3s2.5 1 3 3"/></svg>
+    Team
+  </div>
 </div>
 
 <script>
-
-// ═══════════════════════════════════════════════════════════════════
-// GITHUB API BRIDGE (Replaces google.script.run)
-// ═══════════════════════════════════════════════════════════════════
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzG4k7hPLt2wDhW270d65OqE3khWbUia5aun2VoV1bR1K-pAxnrBC2GGollkhGxAh9-pA/exec";
-
-async function callApi(action, params = {}) {
-
-  const url = new URL(WEB_APP_URL);
-  url.searchParams.set("action", action);
-
-  Object.keys(params).forEach(key => {
-    url.searchParams.set(key, params[key]);
-  });
-
-  try {
-
-    const response = await fetch(url.toString(), {
-      method: "GET",
-      mode: "cors",
-      redirect: "follow"
-    });
-
-    const text = await response.text();
-
-    console.log(text);
-
-    return JSON.parse(text);
-
-  } catch (e) {
-
-    console.error(e);
-
-    return {
-      error: e.toString()
-    };
-  }
-}
-
-  
-async function syncData() {
-
-  const btn = document.getElementById("syncBtn");
-
-  try {
-
-    btn.classList.add("spin");
-
-    const result = await callApi("syncLeads");
-
-    console.log(result);
-
-    if (result.error) {
-      alert(result.error);
-      return;
-    }
-
-    alert("Synced: " + result.synced);
-
-    await loadInitialData();
-
-  } catch(err) {
-
-    console.error(err);
-    alert(err);
-
-  } finally {
-
-    btn.classList.remove("spin");
-
-  }
-}
-  
-  async function loadInitialData() {
-
-  const data = await callApi("getInitialData");
-
-  console.log("DATA:", data);
-
-  if (data.error) {
-    alert(data.error);
-    return;
-  }
-
-  // Store data
-  STATE.data = data;
-
-  // Render UI
-  renderDashboard(data);
-}
-
-loadInitialData();
-
-  
-
-var G={user:null,activePage:'dash',allLeads:[],fullLeadsLoaded:false,pendingLeads:[],interviewLeads:[],stations:[],clusters:[],stationSummary:[],roleSummary:[],jobTypes:[],multi:{}};
+var G={user:null,activePage:'dash',allLeads:[],fullLeadsLoaded:false,pendingLeads:[],interviewLeads:[],stations:[],clusters:[],stationSummary:[],roleSummary:[],jobTypes:[],multi:{},leadQuickFilter:'',leadFinalFilter:'',sorts:{leads:{key:'synced_at',dir:'desc'},pending:{key:'last_updated',dir:'asc'},interviews:{key:'follow_up_date',dir:'asc'},ads:{key:'total_spend',dir:'desc'}},adsRows:[]};
 var ADMIN_ROLES=['admin','owner','hr','finance'];
 function roleKey(u){return String((u&&u.roleKey)||((u&&u.role)||'')).toLowerCase()}
 function isAdmin(u){return u&&(u.isAdmin||ADMIN_ROLES.indexOf(roleKey(u))!==-1)}
 
-// ── LOGIN ─────────────────────────────────────────────────────────────
+// â”€â”€ LOGIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Google Apps Script enforces Google login natively when deployed as
 // "Anyone with Google account". The login screen below is a UX layer
 // shown while we verify the user exists in the Users sheet.
@@ -864,6 +810,7 @@ window.onload=function(){
       }
       G.user=d.user;
       renderUser();
+      initStaticFilterMultis();
     renderDash(d||{stats:{total:0,noStatus:0,pending:0,interviews:0,callback:0,stale:0},stale:[],recentLeads:[]});
     loadStationsAndClusters();
     loadJobTypes();
@@ -876,7 +823,7 @@ window.onload=function(){
     .getDashboardData();
 };
 
-// ── USER RENDER ───────────────────────────────────────────────────────
+// â”€â”€ USER RENDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function renderUser(){
   var u=G.user;
   document.getElementById('uav').textContent=(u.name||'?')[0].toUpperCase();
@@ -891,9 +838,12 @@ function renderUser(){
   if(teamNav) teamNav.style.display=(isAdmin(u)||roleKey(u)==='rm')?'flex':'none';
   var adsNav=document.getElementById('ni-ads');
   if(adsNav) adsNav.style.display=(isAdmin(u)||roleKey(u)==='rm')?'flex':'none';
+  var mobAds=document.getElementById('mob-ads'), mobTeam=document.getElementById('mob-team');
+  if(mobAds) mobAds.style.display=(isAdmin(u)||roleKey(u)==='rm')?'flex':'none';
+  if(mobTeam) mobTeam.style.display=(isAdmin(u)||roleKey(u)==='rm')?'flex':'none';
 }
 
-// ── NAV ───────────────────────────────────────────────────────────────
+// â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 var PAGE_TITLES={dash:'Dashboard',leads:'All Leads',pending:'No Response / Call Back',
   interviews:'Interview Scheduled',reports:'Reports',ads:'Active Ads',sop:'Ad SOP',team:'Team'};
 
@@ -922,7 +872,15 @@ function nav(pg,filters){
   if(pg==='team')       loadTeam();
 }
 
-// ── DASHBOARD ─────────────────────────────────────────────────────────
+function openStaleLeads(){
+  nav('leads',{stale24:true});
+}
+
+function openStationLeads(station,status){
+  nav('leads',{station:station,status:status||''});
+}
+
+// â”€â”€ DASHBOARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function renderDash(d){
   var s=d.stats;
   setText('sv-total',s.total);
@@ -1005,29 +963,54 @@ function renderDashboardSummary(){
   var topRisk=rows.slice().sort(function(a,b){return Number(b.noStatus||0)-Number(a.noStatus||0);}).slice(0,3);
   var topInterview=rows.slice().sort(function(a,b){return Number(b.interviews||0)-Number(a.interviews||0);}).slice(0,3);
   var topCallback=rows.slice().sort(function(a,b){return Number(b.callback||0)-Number(a.callback||0);}).slice(0,3);
+  var actionRows=rows.slice().map(function(r){
+    return {
+      station_code:r.station_code,
+      station_name:r.station_name,
+      cluster:r.cluster,
+      action:Number(r.noStatus||0)+Number(r.noResponse||0)+Number(r.callback||0)+Number(r.stale||0),
+      stale:Number(r.stale||0),
+      noStatus:Number(r.noStatus||0)
+    };
+  }).filter(function(r){return r.action>0;}).sort(function(a,b){return b.action-a.action;}).slice(0,5);
   function topLine(list,key){
-    return list.map(function(r){return esc(r.station_code||'')+' '+num(r[key]||0);}).join(' · ')||'-';
+    return list.map(function(r){return esc(r.station_code||'')+' '+num(r[key]||0);}).join(' Â· ')||'-';
   }
+  function pct(v,d){return num(Math.round((Number(v||0)/Math.max(1,Number(d||0)))*100))+'%';}
   var insightHtml='<div class="dash-insights">'+
     '<div class="insight-tile"><b>'+num(totals.noStatus||0)+'</b><span>No-status leads across selected stations</span></div>'+
-    '<div class="insight-tile"><b>'+num(Math.round(((totals.noStatus||0)/Math.max(1,totals.total||0))*100))+'%</b><span>No-status share</span></div>'+
+    '<div class="insight-tile"><b>'+pct(totals.noStatus,totals.total)+'</b><span>No-status %</span></div>'+
+    '<div class="insight-tile"><b>'+pct(totals.noResponse,totals.total)+'</b><span>No Response %</span></div>'+
+    '<div class="insight-tile"><b>'+pct(totals.interviews,totals.total)+'</b><span>Interview scheduled %</span></div>'+
+    '<div class="insight-tile"><b>'+pct(totals.joined,totals.total)+'</b><span>Joined %</span></div>'+
     '<div class="insight-tile"><b>'+num((totals.noResponse||0)+(totals.callback||0))+'</b><span>Retry / follow-up pool</span></div>'+
     '<div class="insight-tile"><b>'+topLine(topRisk,'noStatus')+'</b><span>Highest no-status stations</span></div>'+
     '<div class="insight-tile"><b>'+topLine(topInterview,'interviews')+'</b><span>Top interview stations</span></div>'+
     '<div class="insight-tile"><b>'+topLine(topCallback,'callback')+'</b><span>Callback pressure</span></div>'+
     '</div>';
+  var actionHtml=actionRows.length?actionRows.map(function(r){
+    return '<div class="action-row" onclick="openStationLeads(\''+esc(r.station_code)+'\')">'+
+      '<span class="c-station">'+esc(r.station_code)+'</span>'+
+      '<div><b>'+esc(r.station_name||'')+'</b><span>'+esc(r.cluster||'')+' Â· '+num(r.noStatus)+' no status Â· '+num(r.stale)+' 24h+</span></div>'+
+      '<strong>'+num(r.action)+'</strong></div>';
+  }).join(''):'<div class="empty" style="padding:22px">No urgent station action right now</div>';
   document.getElementById('dash-tbl').innerHTML=
     '<div class="dash-grid">'+
-      '<div class="dash-card"><div class="dash-card-h">Today\'s Work Queue</div>'+queueHtml+'</div>'+
-      '<div class="dash-card"><div class="dash-card-h">Hiring Visibility</div>'+insightHtml+'</div>'+
-      '<div class="dash-card"><div class="dash-card-h">Station Summary</div><div class="dash-card-scroll"><table class="dash-table"><thead><tr><th>Code</th><th>Station</th><th>Total</th><th>No Status</th><th>No Resp</th><th>Call Back</th><th>Interview</th><th>Not Int</th><th>Long Dist</th><th>Not Fit</th></tr></thead><tbody>'+trs+'</tbody></table></div></div>'+
-      '<div class="dash-card"><div class="dash-card-h">Status Breakdown</div><div style="padding:8px 12px;color:var(--text3);font-size:11px">Status total: '+num(accounted)+' / '+num(totals.total||0)+'</div>'+chart+'<div style="padding:8px 12px;color:var(--text3);font-size:11px">Final outcomes: Joined '+num(totals.joined||0)+' · Dropped '+num(totals.dropped||0)+'</div></div>'+
-      '<div class="dash-card"><div class="dash-card-h">Station Level Performance</div><div class="dash-card-scroll"><table class="dash-table"><thead><tr><th>Code</th><th>Station</th><th>Updated Today</th><th>Attended</th><th>Not Attended</th><th>No Resp</th><th>Call Back</th><th>Interview</th><th>Joined %</th><th>Avg Resp Min</th></tr></thead><tbody>'+perfRows+'</tbody></table></div></div>'+
+      '<div class="dash-col">'+
+        '<div class="dash-card"><div class="dash-card-h">Today\'s Work Queue</div>'+queueHtml+'</div>'+
+        '<div class="dash-card"><div class="dash-card-h">Needs Action</div><div class="action-list">'+actionHtml+'</div></div>'+
+        '<div class="dash-card"><div class="dash-card-h">Status Breakdown</div><div style="padding:8px 12px;color:var(--text3);font-size:11px">Status total: '+num(accounted)+' / '+num(totals.total||0)+'</div>'+chart+'<div style="padding:8px 12px;color:var(--text3);font-size:11px">Final outcomes: Joined '+num(totals.joined||0)+' Â· Dropped '+num(totals.dropped||0)+'</div></div>'+
+      '</div>'+
+      '<div class="dash-col">'+
+        '<div class="dash-card"><div class="dash-card-h">Hiring Visibility</div>'+insightHtml+'</div>'+
+        '<div class="dash-card"><div class="dash-card-h">Station Summary</div><div class="dash-card-scroll"><table class="dash-table"><thead><tr><th>Code</th><th>Station</th><th>Total</th><th>No Status</th><th>No Resp</th><th>Call Back</th><th>Interview</th><th>Not Int</th><th>Long Dist</th><th>Not Fit</th></tr></thead><tbody>'+trs+'</tbody></table></div></div>'+
+        '<div class="dash-card"><div class="dash-card-h">Station Level Performance</div><div class="dash-card-scroll"><table class="dash-table"><thead><tr><th>Code</th><th>Station</th><th>Updated Today</th><th>Attended</th><th>Not Attended</th><th>No Resp</th><th>Call Back</th><th>Interview</th><th>Joined %</th><th>Avg Resp Min</th></tr></thead><tbody>'+perfRows+'</tbody></table></div></div>'+
+      '</div>'+
     '</div>';
 }
 
 function renderRoleLegend(){
-  var names={PC:'Picker',DA:'Delivery Associate',DCD:'Driver cum DA',WM:'Wish Master',SA:'Support Associate',TL:'Team Leader',SI:'Shift Incharge',SM:'Store Manager',STM:'Station Manager',HI:'Hub Incharge',CLM:'Cluster Manager'};
+  var names={PC:'Picker',DA:'Delivery Associate',VAN:'Van',SSA:'SSA',DCD:'Driver cum DA',WM:'Wish Master',SA:'Support Associate',TL:'Team Leader',SI:'Shift Incharge',SM:'Store Manager',STM:'Station Manager',HI:'Hub Incharge',CLM:'Cluster Manager'};
   var rows=Object.keys(names).map(function(k){
     var found=(G.roleSummary||[]).filter(function(r){return r.code===k;})[0];
     return '<div class="legend-item"><b>'+k+'</b><span>'+names[k]+'</span><span>'+num(found&&found.total)+' leads</span></div>';
@@ -1035,10 +1018,19 @@ function renderRoleLegend(){
   document.getElementById('role-legend').innerHTML=rows;
 }
 
-// ── LOAD LEADS ────────────────────────────────────────────────────────
+// â”€â”€ LOAD LEADS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function loadLeads(preFilters,silent){
   if(!silent) document.getElementById('leads-tbl').innerHTML='<div class="spin-wrap"><div class="spinner"></div></div>';
-  if(preFilters&&preFilters.status) document.getElementById('f-status').value=preFilters.status;
+  if(preFilters){
+    G.leadQuickFilter=preFilters.stale24?'stale24':'';
+    G.leadFinalFilter=preFilters.finalStatus?preFilters.finalStatus:'';
+  } else if(!silent) {
+    G.leadQuickFilter='';
+    G.leadFinalFilter='';
+  }
+  if(preFilters&&preFilters.status) setMultiSelectValue('f-status',preFilters.status);
+  if(preFilters&&preFilters.stale24) msClear('f-status');
+  if(preFilters&&preFilters.station) setMultiSelectValue('f-station',preFilters.station);
   google.script.run.withSuccessHandler(function(leads){
     G.allLeads=normalizeLeads(leads);
     G.fullLeadsLoaded=true;
@@ -1114,65 +1106,138 @@ function showFetchNote(kind,r){
   note.textContent='Meta rows: '+num(r.metaRows||0)+' | LeadsDB rows: '+num(r.dbRows||0)+' | Visible to you: '+num(r.visibleRows||0)+' | '+pageLabel+': '+num(pageRows)+' | New synced: '+num(r.synced||0);
 }
 
-// ── FILTERS ───────────────────────────────────────────────────────────
+// â”€â”€ FILTERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function getMultiSelect(id){
   var key=id.indexOf('ms-')===0?id.substring(3):id;
   return G.multi[key]?G.multi[key].selected.slice():[];
 }
 
+function initStaticFilterMultis(){
+  var leadStatus=[
+    {value:'__BLANK__',label:'Blank'},
+    {value:'No Response',label:'No Response'},
+    {value:'Not Interested',label:'Not Interested'},
+    {value:'Call Back',label:'Call Back'},
+    {value:'Long Distance',label:'Long Distance'},
+    {value:'Interview Scheduled',label:'Interview Scheduled'},
+    {value:'Not Fit',label:'Not Fit'}
+  ];
+  msInit('f-status',leadStatus,function(){applyFilters('leads')});
+  msInit('pf-age',[
+    {value:'never',label:'Never Updated'},
+    {value:'lt30',label:'<30 min'},
+    {value:'gt60',label:'Above 1 hr'},
+    {value:'gt120',label:'Above 2 hr'},
+    {value:'gt24h',label:'Above 24 hr'},
+    {value:'gt2d',label:'Above 2 days'}
+  ],function(){applyFilters('pending')});
+  msInit('if-final',[
+    {value:'Joined',label:'Joined'},
+    {value:'Dropped',label:'Dropped'},
+    {value:'No Response',label:'No Response'},
+    {value:'Not Interested',label:'Not Interested'},
+    {value:'Not Fit',label:'Not Fit'}
+  ],function(){applyFilters('interviews')});
+  msInit('ad-filter-status',[
+    {value:'ACTIVE',label:'Active'},
+    {value:'PAUSED',label:'Paused'}
+  ],function(){applyAdFilters()});
+  msInit('r-status',leadStatus,function(){});
+}
+
 function applyFilters(pg){
   if(pg==='leads'){
     var search=(document.getElementById('f-search').value||'').toLowerCase();
-    var status=document.getElementById('f-status').value;
+    var statuses=getMultiSelect('f-status');
     var stations=getMultiSelect('f-station');
     var clusters=getMultiSelect('f-cluster');
-    var job=document.getElementById('f-job').value;
+    var jobs=getMultiSelect('f-job');
     var source=G.allLeads||[];
     var filtered=source.filter(function(l){
-      if(status&&!matchesStatus(l.call_status,status)) return false;
+      if(G.leadQuickFilter==='stale24'&&!isStalePendingLead(l)) return false;
+      if(G.leadFinalFilter&&String(l.final_status||'')!==G.leadFinalFilter) return false;
+      if(statuses.length&&!statuses.some(function(st){return matchesStatus(l.call_status,st)})) return false;
       if(stations.length&&stations.indexOf(l.station_code)===-1) return false;
       if(clusters.length&&clusters.indexOf(l.cluster)===-1) return false;
-      if(job&&l.job_type_code!==job) return false;
+      if(jobs.length&&jobs.indexOf(l.job_type_code)===-1) return false;
       if(search&&!matchSearch(l,search)) return false;
       return true;
     });
-    document.getElementById('fc-leads').textContent=filtered.length+' leads';
+    filtered=sortRows(filtered,G.sorts.leads);
+    var prefix=G.leadQuickFilter==='stale24'?'24h+ pending: ':(G.leadFinalFilter?G.leadFinalFilter+': ':'');
+    document.getElementById('fc-leads').textContent=prefix+filtered.length+' leads';
     renderPageTable('leads-tbl',filtered,'leads',source.length);
   }
   if(pg==='pending'){
     var search=(document.getElementById('pf-search').value||'').toLowerCase();
     var stations=getMultiSelect('pf-station');
     var clusters=getMultiSelect('pf-cluster');
-    var age=document.getElementById('pf-age').value;
+    var ages=getMultiSelect('pf-age');
     var source=G.pendingLeads||[];
     var filtered=source.filter(function(l){
       if(stations.length&&stations.indexOf(l.station_code)===-1) return false;
       if(clusters.length&&clusters.indexOf(l.cluster)===-1) return false;
-      if(age&&!matchesUpdateAge(l.last_updated,age)) return false;
+      if(ages.length&&!ages.some(function(age){return matchesUpdateAge(l.last_updated,age)})) return false;
       if(search&&!matchSearch(l,search)) return false;
       return true;
     });
+    filtered=sortRows(filtered,G.sorts.pending);
     document.getElementById('fc-pending').textContent=filtered.length+' leads';
-    renderPageTable('pending-tbl',filtered,'leads',source.length);
+    renderPageTable('pending-tbl',filtered,'pending',source.length);
   }
   if(pg==='interviews'){
     var search=(document.getElementById('if-search').value||'').toLowerCase();
     var stations=getMultiSelect('if-station');
     var clusters=getMultiSelect('if-cluster');
     var date=document.getElementById('if-date').value;
-    var final=document.getElementById('if-final').value;
+    var finals=getMultiSelect('if-final');
     var source=G.interviewLeads||[];
     var filtered=source.filter(function(l){
       if(stations.length&&stations.indexOf(l.station_code)===-1) return false;
       if(clusters.length&&clusters.indexOf(l.cluster)===-1) return false;
       if(date&&String(l.follow_up_date||'')!==date) return false;
-      if(final&&l.final_status!==final) return false;
+      if(finals.length&&finals.indexOf(l.final_status)===-1) return false;
       if(search&&!matchSearch(l,search)) return false;
       return true;
     });
+    filtered=sortRows(filtered,G.sorts.interviews);
     document.getElementById('fc-interviews').textContent=filtered.length+' leads';
     renderPageTable('interviews-tbl',filtered,'interviews',source.length);
   }
+}
+
+function sortValue(row,key){
+  var v=row?row[key]:'';
+  if(key==='lead_time'||key==='synced_at'||key==='last_updated'||key==='follow_up_date'||key==='callback_at'||key==='created_at'||key==='active_since'){
+    var d=parseUpdated(v)||new Date(v);
+    return isNaN(d)?0:d.getTime();
+  }
+  if(['total_spend','budget_per_day','total_leads','days_active','reach'].indexOf(key)!==-1) return Number(v||0);
+  return String(v||'').toLowerCase();
+}
+
+function sortRows(rows,sort){
+  sort=sort||{};
+  var key=sort.key||'synced_at', dir=sort.dir==='asc'?1:-1;
+  return (rows||[]).slice().sort(function(a,b){
+    var av=sortValue(a,key), bv=sortValue(b,key);
+    if(av<bv) return -1*dir;
+    if(av>bv) return 1*dir;
+    return 0;
+  });
+}
+
+function setLeadSort(mode,key){
+  var s=G.sorts[mode]||{key:key,dir:'asc'};
+  if(s.key===key) s.dir=s.dir==='asc'?'desc':'asc';
+  else {s.key=key;s.dir='asc';}
+  G.sorts[mode]=s;
+  applyFilters(mode==='interviews'?'interviews':mode==='pending'?'pending':'leads');
+}
+
+function sortClass(mode,key){
+  var s=G.sorts[mode]||{};
+  return s.key===key?' '+s.dir:'';
 }
 
 function renderPageTable(targetId,rows,mode,loadedCount){
@@ -1191,17 +1256,18 @@ function renderPageTable(targetId,rows,mode,loadedCount){
 
 function resetCurrentFilters(){
   if(G.activePage==='leads'){
-    ['f-search','f-status','f-job'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
-    msClear('f-station'); msClear('f-cluster'); applyFilters('leads');
+    G.leadQuickFilter='';
+    G.leadFinalFilter='';
+    ['f-search'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+    msClear('f-status'); msClear('f-station'); msClear('f-cluster'); msClear('f-job'); applyFilters('leads');
   }
   if(G.activePage==='pending'){
     var ps=document.getElementById('pf-search'); if(ps) ps.value='';
-    var pa=document.getElementById('pf-age'); if(pa) pa.value='';
-    msClear('pf-station'); msClear('pf-cluster'); applyFilters('pending');
+    msClear('pf-age'); msClear('pf-station'); msClear('pf-cluster'); applyFilters('pending');
   }
   if(G.activePage==='interviews'){
-    ['if-search','if-date','if-final'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
-    msClear('if-station'); msClear('if-cluster'); applyFilters('interviews');
+    ['if-search','if-date'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+    msClear('if-final'); msClear('if-station'); msClear('if-cluster'); applyFilters('interviews');
   }
 }
 
@@ -1222,12 +1288,24 @@ function msRender(id, query){
   var list=state.items.filter(function(it){return !q||String(it.label).toLowerCase().indexOf(q)!==-1||String(it.value).toLowerCase().indexOf(q)!==-1;});
   el.innerHTML='<button type="button" class="ms-btn" onclick="msToggle(event,\''+id+'\')">'+esc(title)+'</button>'+
     '<div class="ms-menu" onclick="event.stopPropagation()">'+
-      '<input class="ms-search" placeholder="Search..." oninput="msRender(\''+id+'\',this.value)" value="'+esc(query||'')+'">'+
+      '<input class="ms-search" placeholder="Search..." oninput="msSearch(\''+id+'\',this.value)" value="'+esc(query||'')+'">'+
       '<div class="ms-actions"><button onclick="msSelectAll(\''+id+'\')">All</button><button onclick="msClear(\''+id+'\')">Clear</button></div>'+
-      '<div class="ms-list">'+(list.length?list.map(function(it){
-        var checked=selected.indexOf(it.value)!==-1?' checked':'';
-        return '<label class="ms-item"><input type="checkbox" value="'+esc(it.value)+'"'+checked+' onchange="msPick(\''+id+'\',this.value,this.checked)"> <span>'+esc(it.label)+'</span></label>';
-      }).join(''):'<div class="ms-empty">No matches</div>')+'</div></div>';
+      '<div class="ms-list">'+msListHtml(id,list,selected)+'</div></div>';
+}
+
+function msListHtml(id,list,selected){
+  return list.length?list.map(function(it){
+    var checked=selected.indexOf(it.value)!==-1?' checked':'';
+    return '<label class="ms-item"><input type="checkbox" value="'+esc(it.value)+'"'+checked+' onchange="msPick(\''+id+'\',this.value,this.checked)"> <span>'+esc(it.label)+'</span></label>';
+  }).join(''):'<div class="ms-empty">No matches</div>';
+}
+
+function msSearch(id,query){
+  var state=G.multi[id], listEl=document.querySelector('#ms-'+id+' .ms-list');
+  if(!state||!listEl) return;
+  var q=String(query||'').toLowerCase();
+  var list=state.items.filter(function(it){return !q||String(it.label).toLowerCase().indexOf(q)!==-1||String(it.value).toLowerCase().indexOf(q)!==-1;});
+  listEl.innerHTML=msListHtml(id,list,state.selected);
 }
 
 function msToggle(e,id){
@@ -1256,6 +1334,12 @@ function msClear(id){
   s.selected=[];
   msRender(id);
   if(s.onChange) s.onChange();
+}
+function setMultiSelectValue(id,value){
+  var s=G.multi[id]; if(!s) return;
+  var v=String(value||'');
+  s.selected=v?[v]:[];
+  msRender(id);
 }
 document.addEventListener('click',function(){document.querySelectorAll('.ms.open').forEach(function(x){x.classList.remove('open')});});
 
@@ -1298,7 +1382,15 @@ function matchesUpdateAge(lastUpdated,bucket){
   return true;
 }
 
-// ── STATIONS & CLUSTERS ───────────────────────────────────────────────
+function isStalePendingLead(l){
+  var st=String(l.call_status||'').trim();
+  if(st&&st!=='No Response'&&st!=='Call Back') return false;
+  var base=parseUpdated(l.synced_at)||parseUpdated(l.lead_time)||parseUpdated(l.last_updated);
+  if(!base) return false;
+  return (new Date()-base)/3600000>24;
+}
+
+// â”€â”€ STATIONS & CLUSTERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function loadStationsAndClusters(){
   google.script.run.withSuccessHandler(function(stations){
     G.stations=stations||[];
@@ -1331,9 +1423,8 @@ function loadJobTypes(){
 }
 
 function fillJobFilters(){
-  var f=document.getElementById('f-job');
-  if(!f||!G.jobTypes||!G.jobTypes.length) return;
-  f.innerHTML='<option value="">All Roles</option>'+G.jobTypes.map(function(t){return '<option value="'+esc(t.code)+'">'+esc(t.name||t.code)+'</option>';}).join('');
+  if(!G.jobTypes||!G.jobTypes.length) return;
+  msInit('f-job',G.jobTypes.map(function(t){return {value:t.code,label:t.code+' - '+(t.name||t.code)};}),function(){applyFilters('leads')});
 }
 
 function fillAdSelects(){
@@ -1354,10 +1445,11 @@ function cascadeStations(prefix){
   msRender(key);
 }
 
-// ── REPORTS ──────────────────────────────────────────────────────────
+// â”€â”€ REPORTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function initReports(){
   if(!G.stations||!G.stations.length) loadStationsAndClusters();
   setSpendWeekDefaults();
+  reportTypeChanged();
 }
 
 function setSpendWeekDefaults(){
@@ -1372,22 +1464,40 @@ function setSpendWeekDefaults(){
   to.value=formatDateInput(end);
 }
 
+function reportTypeChanged(){
+  var type=(document.getElementById('r-type')||{}).value||'leads';
+  var ids=['r-lead-from','r-lead-to','r-updated-from','r-updated-to','r-interview-from','r-interview-to','r-nostatus-age','r-spend-from','r-spend-to'];
+  ids.forEach(function(id){var el=document.getElementById(id); if(el&&el.closest('.report-field')) el.closest('.report-field').style.display='none';});
+  var show={
+    leads:['r-lead-from','r-lead-to','r-updated-from','r-updated-to'],
+    interviews:['r-interview-from','r-interview-to'],
+    spend:['r-spend-from','r-spend-to'],
+    weeklyspend:['r-spend-from','r-spend-to'],
+    dailyleads:['r-lead-from','r-lead-to'],
+    nostatus:['r-nostatus-age','r-lead-from','r-lead-to'],
+    effort:['r-updated-from','r-updated-to']
+  }[type]||[];
+  show.forEach(function(id){var el=document.getElementById(id); if(el&&el.closest('.report-field')) el.closest('.report-field').style.display='flex';});
+}
+
 function formatDateInput(d){
   return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 }
 
 function reportFilters(){
+  var type=(document.getElementById('r-type')||{}).value||'leads';
+  var reportStatuses=getMultiSelect('r-status');
   return {
-    leadDateFrom: document.getElementById('r-lead-from').value,
-    leadDateTo: document.getElementById('r-lead-to').value,
-    updatedFrom: document.getElementById('r-updated-from').value,
-    updatedTo: document.getElementById('r-updated-to').value,
-    interviewFrom: document.getElementById('r-interview-from').value,
-    interviewTo: document.getElementById('r-interview-to').value,
-    noStatusAge: document.getElementById('r-nostatus-age').value,
-    spendFrom: document.getElementById('r-spend-from').value,
-    spendTo: document.getElementById('r-spend-to').value,
-    status: document.getElementById('r-status').value,
+    leadDateFrom: (type==='leads'||type==='nostatus'||type==='dailyleads')?document.getElementById('r-lead-from').value:'',
+    leadDateTo: (type==='leads'||type==='nostatus'||type==='dailyleads')?document.getElementById('r-lead-to').value:'',
+    updatedFrom: (type==='leads'||type==='effort')?document.getElementById('r-updated-from').value:'',
+    updatedTo: (type==='leads'||type==='effort')?document.getElementById('r-updated-to').value:'',
+    interviewFrom: type==='interviews'?document.getElementById('r-interview-from').value:'',
+    interviewTo: type==='interviews'?document.getElementById('r-interview-to').value:'',
+    noStatusAge: type==='nostatus'?document.getElementById('r-nostatus-age').value:'',
+    spendFrom: (type==='spend'||type==='weeklyspend')?document.getElementById('r-spend-from').value:'',
+    spendTo: (type==='spend'||type==='weeklyspend')?document.getElementById('r-spend-to').value:'',
+    status: reportStatuses.length?reportStatuses:'',
     station: getMultiSelect('r-station'),
     cluster: getMultiSelect('r-cluster'),
     format: document.getElementById('r-format').value
@@ -1428,6 +1538,7 @@ function downloadReport(){
   else if(type==='interviews') runner.generateInterviewReport(filters);
   else if(type==='spend') runner.generateSpendAnalysisReport(filters);
   else if(type==='weeklyspend') runner.generateWeeklySpendReport(filters);
+  else if(type==='dailyleads') runner.generateDailyLeadGenerationReport(filters);
   else if(type==='nostatus') runner.generateNoStatusReport(filters);
   else runner.generateReport(filters);
 }
@@ -1459,13 +1570,14 @@ function startAutoRefresh(){
   },20000);
 }
 
-// ── TABLE RENDERER ────────────────────────────────────────────────────
+// â”€â”€ TABLE RENDERER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 var STATUS_OPTS=['','No Response','Not Interested','Call Back','Long Distance','Interview Scheduled','Not Fit'];
 
 function renderTable(leads, mode){
   if(!leads||!leads.length) return '<div class="tbl-card"><div class="empty">No leads found</div></div>';
   var isInterview=(mode==='interviews');
   var isDash=(mode==='dash');
+  var sortMode=mode==='pending'?'pending':(isInterview?'interviews':'leads');
   var now=new Date();
 
   var rows=leads.map(function(l){
@@ -1477,21 +1589,21 @@ function renderTable(leads, mode){
     var jc=l.job_type_code||'DA';
     var sCls=l.station_code==='UNKNOWN'?'c-station c-unk':'c-station';
     var platform=(l.platform||'').toLowerCase();
-    var platIcon=platform==='ig'?'IG':platform==='fb'?'FB':'—';
+    var platIcon=platform==='ig'?'IG':platform==='fb'?'FB':'â€”';
 
     // Status colour and display
     var stCol=statusColor(l.call_status);
     var stDisplay=l.call_status||'';
     var opts=STATUS_OPTS.map(function(o){
-      return '<option value="'+esc(o)+'"'+(l.call_status===o?' selected':'')+'>'+( o||'— select —')+'</option>';
+      return '<option value="'+esc(o)+'"'+(l.call_status===o?' selected':'')+'>'+( o||'â€” select â€”')+'</option>';
     }).join('');
 
-    // Last updated — short format
-    var tsHtml='<div class="c-ts">—</div>';
+    // Last updated â€” short format
+    var tsHtml='<div class="c-ts">â€”</div>';
     if(l.last_updated){
       var parts=String(l.last_updated).replace(' IST','').split(' ');
       tsHtml='<div class="c-ts">'+esc(parts[0]||'')+
-        '<span>'+esc(parts[1]||'')+' '+(l.updated_by?'· '+esc(String(l.updated_by).split('@')[0]):'')+'</span></div>';
+        '<span>'+esc(parts[1]||'')+' '+(l.updated_by?'Â· '+esc(String(l.updated_by).split('@')[0]):'')+'</span></div>';
     }
 
     // Interview date cell
@@ -1499,17 +1611,17 @@ function renderTable(leads, mode){
       ? '<input type="date" class="date-inp" value="'+esc(l.follow_up_date||'')+'" onchange="save(\''+lid+'\',\'follow_up_date\',this.value,this)">'
       : (l.call_status==='Call Back'
         ? '<input type="datetime-local" class="date-inp" value="'+esc(l.callback_at||'')+'" onchange="save(\''+lid+'\',\'callback_at\',this.value,this)">'
-        : '<div class="cell c-sub" style="padding-left:10px">—</div>');
+        : '<div class="cell c-sub" style="padding-left:10px">â€”</div>');
 
     var row='<tr id="row-'+lid+'" style="'+(stale?'background:rgba(192,40,42,.03)':'')+'">'+
       '<td style="min-width:130px"><div class="cell" style="flex-direction:column;align-items:flex-start;gap:1px">'+
-        '<div class="c-name">'+esc(l.full_name||'—')+'</div>'+
+        '<div class="c-name">'+esc(l.full_name||'â€”')+'</div>'+
         '<div class="c-sub">'+esc(l.city||'')+' '+esc(l.post_code||'')+'</div>'+
         (sla?'<span class="sla-pill">'+esc(sla)+'</span>':'')+
         (dup>1?'<span class="dup-pill">Duplicate x'+dup+'</span>':'')+
         renderProfileDetails(l)+
       '</div></td>'+
-      '<td style="min-width:100px"><div class="cell"><a class="c-phone" href="tel:'+esc(l.phone)+'">'+esc(l.phone||'—')+'</a></div></td>'+
+      '<td style="min-width:100px"><div class="cell"><a class="c-phone" href="tel:'+esc(l.phone)+'">'+esc(l.phone||'â€”')+'</a></div></td>'+
       '<td style="min-width:70px"><div class="cell"><span class="'+sCls+'" title="'+esc(l.station_name||'')+'">'+esc(l.station_code||'?')+'</span></div></td>'+
       '<td style="min-width:50px"><div class="cell"><span class="job-badge j-'+jc+'">'+jc+'</span></div></td>'+
       '<td style="min-width:35px"><div class="cell c-sub" style="font-size:10px;justify-content:center">'+platIcon+'</div></td>';
@@ -1521,11 +1633,11 @@ function renderTable(leads, mode){
         '</td>'+
         '<td style="min-width:100px;padding:0">'+intCell+'</td>'+
         '<td style="min-width:160px;padding:0">'+
-          '<textarea class="remarks-inp" placeholder="Remarks…" onblur="save(\''+lid+'\',\'remarks\',this.value,this)">'+esc(l.remarks||'')+'</textarea>'+
+          '<textarea class="remarks-inp" placeholder="Remarksâ€¦" onblur="save(\''+lid+'\',\'remarks\',this.value,this)">'+esc(l.remarks||'')+'</textarea>'+
         '</td>';
       if(isInterview){
         var finalOpts=['','Joined','Dropped','No Response','Not Interested','Not Fit'].map(function(o){
-          return '<option value="'+o+'"'+(l.final_status===o?' selected':'')+'>'+( o||'— final status —')+'</option>';
+          return '<option value="'+o+'"'+(l.final_status===o?' selected':'')+'>'+( o||'â€” final status â€”')+'</option>';
         }).join('');
         var finalCol=l.final_status==='Joined'?'var(--green)':
           l.final_status==='Dropped'||l.final_status==='Not Interested'||l.final_status==='Not Fit'?'var(--dx-red)':
@@ -1535,7 +1647,7 @@ function renderTable(leads, mode){
             '<select class="final-sel" onchange="save(\''+lid+'\',\'final_status\',this.value,this)" style="color:'+finalCol+'">'+finalOpts+'</select>'+
           '</td>'+
           '<td style="min-width:150px;padding:0">'+
-            '<textarea class="remarks-inp" placeholder="Final remarks…" onblur="save(\''+lid+'\',\'final_remarks\',this.value,this)">'+esc(l.final_remarks||'')+'</textarea>'+
+            '<textarea class="remarks-inp" placeholder="Final remarksâ€¦" onblur="save(\''+lid+'\',\'final_remarks\',this.value,this)">'+esc(l.final_remarks||'')+'</textarea>'+
           '</td>'+
           '<td style="min-width:160px;padding:0">'+
             '<input type="email" class="date-inp" placeholder="associate@email.com" value="'+esc(l.work_email||'')+'" onblur="save(\''+lid+'\',\'work_email\',this.value,this)" style="font-size:11px">'+
@@ -1543,7 +1655,7 @@ function renderTable(leads, mode){
       }
     } else {
       // Dashboard: read-only status + timestamp
-      row+='<td><div class="cell"><span style="font-size:11px;color:'+stCol+'">'+esc(stDisplay||'—')+'</span></div></td>';
+      row+='<td><div class="cell"><span style="font-size:11px;color:'+stCol+'">'+esc(stDisplay||'â€”')+'</span></div></td>';
     }
 
     row+='<td style="min-width:90px" id="ts-'+lid+'">'+
@@ -1552,15 +1664,16 @@ function renderTable(leads, mode){
     return row;
   }).join('');
 
+  var hdr=function(key,label){return '<th class="sort-th'+sortClass(sortMode,key)+'" onclick="setLeadSort(\''+sortMode+'\',\''+key+'\')">'+label+'</th>';};
   var hdrs='<tr>'+
-    '<th>Name / City</th><th>Phone</th><th>Station</th><th>Role</th><th>Src</th>';
+    hdr('full_name','Name / City')+hdr('phone','Phone')+hdr('station_code','Station')+hdr('job_type_code','Role')+hdr('platform','Src');
   if(!isDash){
-    hdrs+='<th>Status</th><th>Follow-up / Interview</th><th>Remarks</th>';
-    if(isInterview) hdrs+='<th>Final Status</th><th>Final Remarks</th><th>Work Email <span id="mail-info-btn" onclick="showMailInfo(event)" style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;border:1px solid var(--text3);color:var(--text3);font-size:9px;cursor:pointer;margin-left:3px;font-style:normal">i</span></th>';
+    hdrs+=hdr('call_status','Status')+hdr(isInterview?'follow_up_date':'last_updated','Follow-up / Interview')+'<th>Remarks</th>';
+    if(isInterview) hdrs+=hdr('final_status','Final Status')+'<th>Final Remarks</th><th>Work Email <span id="mail-info-btn" onclick="showMailInfo(event)" style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;border:1px solid var(--text3);color:var(--text3);font-size:9px;cursor:pointer;margin-left:3px;font-style:normal">i</span></th>';
   } else {
-    hdrs+='<th>Status</th>';
+    hdrs+=hdr('call_status','Status');
   }
-  hdrs+='<th>Last Updated</th></tr>';
+  hdrs+=hdr('last_updated','Last Updated')+'</tr>';
 
   var cards=leads.map(function(l){return renderLeadCard(l,mode);}).join('');
   return '<div class="tbl-card"><table><thead>'+hdrs+'</thead><tbody>'+rows+'</tbody></table><div class="lead-cards">'+cards+'</div></div>';
@@ -1609,7 +1722,7 @@ function renderLeadCard(l,mode){
     return '<option value="'+esc(o)+'"'+(l.final_status===o?' selected':'')+'>'+( o||'final status')+'</option>';
   }).join('');
   var html='<div class="lead-card" id="mrow-'+lid+'">'+
-    '<div class="lead-card-top"><div><div class="lead-card-title">'+esc(l.full_name||'-')+'</div><div class="lead-card-meta">'+esc(l.city||'')+' '+esc(l.post_code||'')+' · '+esc(l.phone||'')+'</div></div><span class="c-station">'+esc(l.station_code||'?')+'</span></div>'+
+    '<div class="lead-card-top"><div><div class="lead-card-title">'+esc(l.full_name||'-')+'</div><div class="lead-card-meta">'+esc(l.city||'')+' '+esc(l.post_code||'')+' Â· '+esc(l.phone||'')+'</div></div><span class="c-station">'+esc(l.station_code||'?')+'</span></div>'+
     (l.sla_status?'<span class="sla-pill">'+esc(l.sla_status)+'</span>':'')+
     (Number(l.duplicate_count||0)>1?'<span class="dup-pill">Duplicate x'+esc(l.duplicate_count)+'</span>':'')+
     renderProfileDetails(l)+
@@ -1636,7 +1749,7 @@ function statusColor(s){
   return 'var(--text2)';
 }
 
-// ── INLINE SAVE ───────────────────────────────────────────────────────
+// â”€â”€ INLINE SAVE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 var _timers={};
 function localLeadValue(leadId,field){
   var lists=[G.allLeads,G.pendingLeads,G.interviewLeads];
@@ -1670,7 +1783,7 @@ function save(leadId,field,value,el){
             var dateInput=intTd.querySelector('input');
             if(dateInput) setTimeout(function(){dateInput.focus();},20);
           } else {
-            intTd.innerHTML='<div class="cell c-sub" style="padding-left:10px">—</div>';
+            intTd.innerHTML='<div class="cell c-sub" style="padding-left:10px">â€”</div>';
           }
         }
       }
@@ -1691,9 +1804,9 @@ function save(leadId,field,value,el){
               if(existing){
                 var parts=String(existing).replace(' IST','').split(' ');
                 tsCell.innerHTML='<div class="cell" style="padding:4px 8px"><div class="c-ts">'+
-                  esc(parts[0]||'')+'<span>'+esc(parts[1]||'')+(by?' · '+esc(String(by).split('@')[0]):'')+'</span></div></div>';
+                  esc(parts[0]||'')+'<span>'+esc(parts[1]||'')+(by?' Â· '+esc(String(by).split('@')[0]):'')+'</span></div></div>';
               } else {
-                tsCell.innerHTML='<div class="cell" style="padding:4px 8px"><div class="c-sub">—</div></div>';
+                tsCell.innerHTML='<div class="cell" style="padding:4px 8px"><div class="c-sub">â€”</div></div>';
               }
             }
             return;
@@ -1707,7 +1820,7 @@ function save(leadId,field,value,el){
             return;
           }
           var parts=r.stamp.replace(' IST','').split(' ');
-          var by=r.updatedBy?'· '+r.updatedBy.split('@')[0]:'';
+          var by=r.updatedBy?'Â· '+r.updatedBy.split('@')[0]:'';
           tsCell.innerHTML='<div class="cell" style="padding:4px 8px"><div class="c-ts">'+
             parts[0]+'<span>'+parts[1]+' '+by+' <span class="dot-ok dot-save"></span></span></div></div>';
           setTimeout(function(){
@@ -1737,7 +1850,7 @@ function updateLocalLead(leadId,field,value){
   });
 }
 
-// ── SYNC ──────────────────────────────────────────────────────────────
+// â”€â”€ SYNC â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function doSync(){
   var btn=document.getElementById('sbtn');
   btn.classList.add('spin');
@@ -1750,7 +1863,7 @@ function doSync(){
   }).withFailureHandler(function(e){btn.classList.remove('spin');err(e);}).syncLeads();
 }
 
-// ── ACTIVE ADS ────────────────────────────────────────────────────────
+// â”€â”€ ACTIVE ADS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function loadAds(forceSync){
   var el=document.getElementById('ads-list');
   if(!el) return;
@@ -1758,11 +1871,86 @@ function loadAds(forceSync){
   fillAdSelects();
   google.script.run.withSuccessHandler(function(rows){
     var payload=Array.isArray(rows)?{rows:rows,meta:null}:(rows||{rows:[],meta:null});
-    renderAds(payload.rows||[]);
+    G.adsRows=payload.rows||[];
+    fillAdFilterSelects(G.adsRows);
+    applyAdFilters();
     renderAdApiStatus(payload.meta);
   }).withFailureHandler(function(e){
     el.innerHTML='<div class="empty">Could not load ads</div>'; err(e);
   }).getActiveAds(!!forceSync);
+}
+
+function fillAdFilterSelects(rows){
+  var curRoles=getMultiSelect('ad-filter-role'), curStations=getMultiSelect('ad-filter-station'), curClusters=getMultiSelect('ad-filter-cluster'), stations={}, clusters={}, roles={};
+  (rows||[]).forEach(function(a){
+    if(a.station_code) stations[a.station_code]={value:a.station_code,label:a.station_code+' '+(a.station_name||''),cluster:a.cluster||''};
+    if(a.cluster) clusters[a.cluster]={value:a.cluster,label:a.cluster};
+    if(a.job_type_code) roles[a.job_type_code]=true;
+  });
+  msInit('ad-filter-cluster',Object.keys(clusters).sort().map(function(k){return clusters[k];}),function(){refreshAdStationFilter();applyAdFilters();});
+  msInit('ad-filter-station',Object.keys(stations).sort().map(function(k){return stations[k];}),function(){applyAdFilters();});
+  msInit('ad-filter-role',Object.keys(roles).sort().map(function(r){return {value:r,label:r};}),function(){applyAdFilters();});
+  var clusterVals=Object.keys(clusters), stationVals=Object.keys(stations);
+  G.multi['ad-filter-cluster'].selected=curClusters.filter(function(v){return clusterVals.indexOf(v)!==-1;});
+  G.multi['ad-filter-station'].selected=curStations.filter(function(v){return stationVals.indexOf(v)!==-1;});
+  G.multi['ad-filter-role'].selected=curRoles.filter(function(v){return roles[v];});
+  msRender('ad-filter-cluster');
+  msRender('ad-filter-role');
+  refreshAdStationFilter();
+}
+
+function refreshAdStationFilter(){
+  var clusters=getMultiSelect('ad-filter-cluster');
+  var all={};
+  (G.adsRows||[]).forEach(function(a){
+    if(a.station_code&&(!clusters.length||clusters.indexOf(a.cluster)!==-1)){
+      all[a.station_code]={value:a.station_code,label:a.station_code+' '+(a.station_name||''),cluster:a.cluster||''};
+    }
+  });
+  var s=G.multi['ad-filter-station'];
+  if(!s) return;
+  var selected=s.selected.slice();
+  s.items=Object.keys(all).sort().map(function(k){return all[k];});
+  var allowed=s.items.map(function(x){return x.value;});
+  s.selected=selected.filter(function(v){return allowed.indexOf(v)!==-1;});
+  msRender('ad-filter-station');
+}
+
+function setAdSort(v){
+  var p=String(v||'total_spend:desc').split(':');
+  G.sorts.ads={key:p[0],dir:p[1]||'desc'};
+  applyAdFilters();
+}
+
+function setAdHeaderSort(key){
+  var s=G.sorts.ads||{key:key,dir:'desc'};
+  if(s.key===key) s.dir=s.dir==='asc'?'desc':'asc';
+  else {s.key=key;s.dir=(['total_spend','budget_per_day','total_leads','days_active','reach'].indexOf(key)!==-1)?'desc':'asc';}
+  G.sorts.ads=s;
+  var sel=document.getElementById('ad-sort');
+  if(sel) sel.value=s.key+':'+s.dir;
+  applyAdFilters();
+}
+
+function applyAdFilters(){
+  var q=String((document.getElementById('ad-search')||{}).value||'').toLowerCase();
+  var statuses=getMultiSelect('ad-filter-status');
+  var stations=getMultiSelect('ad-filter-station');
+  var clusters=getMultiSelect('ad-filter-cluster');
+  var roles=getMultiSelect('ad-filter-role');
+  var rows=(G.adsRows||[]).filter(function(a){
+    var status=String(a.effective_status||a.status||'').toUpperCase();
+    if(statuses.length&&statuses.indexOf(status)===-1) return false;
+    if(stations.length&&stations.indexOf(String(a.station_code||''))===-1) return false;
+    if(clusters.length&&clusters.indexOf(String(a.cluster||''))===-1) return false;
+    if(roles.length&&roles.indexOf(String(a.job_type_code||''))===-1) return false;
+    if(q){
+      var hay=[a.ad_name,a.station_code,a.station_name,a.cluster,a.region,a.job_type_code,a.status,a.effective_status].join(' ').toLowerCase();
+      if(hay.indexOf(q)===-1) return false;
+    }
+    return true;
+  });
+  renderAds(sortRows(rows,G.sorts.ads));
 }
 
 function renderAdApiStatus(meta){
@@ -1775,17 +1963,73 @@ function renderAdApiStatus(meta){
 
 function renderAds(rows){
   var el=document.getElementById('ads-list');
-  if(!rows.length){el.innerHTML='<div class="tbl-card"><div class="empty">No active ads with spend found</div></div>';return;}
+  if(!rows.length){el.innerHTML='<div class="tbl-card"><div class="empty">No ads found for current filters</div></div>';return;}
+  var dailyTotal=rows.reduce(function(sum,a){
+    var s=String(a.effective_status||a.status||'').toUpperCase();
+    return s==='ACTIVE' ? sum+(Number(a.budget_per_day||0)||0) : sum;
+  },0);
+  var stationCount={};
+  var activeCount=0, pausedCount=0;
+  rows.forEach(function(a){
+    if(a.station_code) stationCount[a.station_code]=true;
+    var s=String(a.effective_status||a.status||'').toUpperCase();
+    if(s==='PAUSED') pausedCount++;
+    else if(s==='ACTIVE') activeCount++;
+  });
+  var summary='<div class="ad-spend-summary">'+
+    '<div><div class="ad-spend-label">Daily Active Budget</div><div class="ad-spend-value">â‚¹ '+num(dailyTotal)+'</div></div>'+
+    '<div class="ad-spend-meta"><strong>'+num(activeCount)+'</strong> active Â· <strong>'+num(pausedCount)+'</strong> paused<br><strong>'+num(Object.keys(stationCount).length)+'</strong> stations visible</div>'+
+  '</div>';
   var body=rows.map(function(a){
     var budget=num(a.budget_per_day||0);
     var poster='<button class="fetch-btn" data-adid="'+esc(a.ad_id)+'" data-url="'+esc(a.poster_link||'')+'" onclick="openPoster(this)">View</button>';
+    var status=String(a.effective_status||a.status||'').toUpperCase();
+    var paused=status==='PAUSED'||String(a.status||'').toLowerCase()==='paused';
+    var pauseLabel=paused?'Resume':'Pause';
+    var pauseBtnCls=paused?'fetch-btn btn-resume':'fetch-btn btn-pause';
+    var statusCls=paused?'ad-status-paused':'ad-status-active';
     return '<tr><td><div class="c-name">'+esc(a.ad_name||a.ad_id||'Meta Ad')+'</div><div class="c-sub">'+esc(a.effective_status||a.status||'')+'</div></td>'+
-      '<td><span class="c-station">'+esc(a.station_code||'')+'</span><div class="c-sub">'+esc(a.cluster||'')+' · '+esc(a.region||'')+'</div></td>'+
+      '<td><span class="c-station">'+esc(a.station_code||'')+'</span><div class="c-sub">'+esc(a.cluster||'')+' Â· '+esc(a.region||'')+'</div></td>'+
       '<td><span class="job-badge j-'+esc(a.job_type_code)+'">'+esc(a.job_type_code||'')+'</span></td>'+
-      '<td>'+budget+'</td><td>'+num(a.total_spend||0)+'</td><td>'+esc(shortDate(a.created_at||a.active_since||''))+'</td><td>'+num(a.days_active||0)+'</td><td>'+num(a.total_leads||0)+'</td><td>'+poster+'</td>'+
-      '<td><button class="fetch-btn" onclick="budgetRequest(\''+esc(a.ad_id)+'\',\''+esc(a.budget_per_day||0)+'\')">Budget</button> <button class="fetch-btn" onclick="stopAd(\''+esc(a.ad_id)+'\')">Stop</button></td></tr>';
+      '<td>'+budget+'</td><td>'+num(a.total_spend||0)+'</td><td>'+esc(shortDate(a.created_at||a.active_since||''))+'</td><td>'+num(a.days_active||0)+'</td><td>'+num(a.total_leads||0)+'</td><td class="'+statusCls+'">'+esc(paused?'Paused':'Active')+'</td><td>'+poster+'</td>'+
+      '<td><button class="fetch-btn" onclick="budgetRequest(\''+esc(a.ad_id)+'\',\''+esc(a.budget_per_day||0)+'\')">Budget</button> <button class="'+pauseBtnCls+'" onclick="toggleAd(this,\''+esc(a.ad_id)+'\')">'+pauseLabel+'</button> <button class="fetch-btn btn-stop" onclick="stopAd(\''+esc(a.ad_id)+'\')">Stop</button></td></tr>';
   }).join('');
-  el.innerHTML='<div class="tbl-card"><table><thead><tr><th>Ad Name</th><th>Station</th><th>Role</th><th>Budget/day</th><th>Total Spend</th><th>Created</th><th>Days Active</th><th>Leads</th><th>Poster</th><th>Actions</th></tr></thead><tbody>'+body+'</tbody></table></div>';
+  var cards=rows.map(function(a){
+    var poster='<button class="fetch-btn" data-adid="'+esc(a.ad_id)+'" data-url="'+esc(a.poster_link||'')+'" onclick="openPoster(this)">Poster</button>';
+    var status=String(a.effective_status||a.status||'').toUpperCase();
+    var paused=status==='PAUSED'||String(a.status||'').toLowerCase()==='paused';
+    var pauseLabel=paused?'Resume':'Pause';
+    var pauseBtnCls=paused?'fetch-btn btn-resume':'fetch-btn btn-pause';
+    return '<div class="ad-card"><div class="ad-card-top"><div><div class="ad-title">'+esc(a.ad_name||a.ad_id||'Meta Ad')+'</div>'+
+      '<div class="ad-meta">'+esc(a.effective_status||a.status||'')+' Â· '+esc(shortDate(a.created_at||a.active_since||''))+'</div></div>'+
+      '<span class="c-station">'+esc(a.station_code||'')+'</span></div>'+
+      '<div class="ad-grid">'+
+        '<div><b>'+num(a.total_leads||0)+'</b><span>Leads</span></div>'+
+        '<div><b>'+num(a.total_spend||0)+'</b><span>Spend</span></div>'+
+        '<div><b>'+num(a.budget_per_day||0)+'</b><span>Budget/day</span></div>'+
+        '<div><b>'+num(a.days_active||0)+'</b><span>Days active</span></div>'+
+      '</div><div class="ad-actions">'+poster+
+      '<button class="fetch-btn" onclick="budgetRequest(\''+esc(a.ad_id)+'\',\''+esc(a.budget_per_day||0)+'\')">Budget</button>'+
+      '<button class="'+pauseBtnCls+'" onclick="toggleAd(this,\''+esc(a.ad_id)+'\')">'+pauseLabel+'</button>'+
+      '<button class="fetch-btn btn-stop" onclick="stopAd(\''+esc(a.ad_id)+'\')">Stop</button></div></div>';
+  }).join('');
+  var h=function(key,label){return '<th class="sort-th'+sortClass('ads',key)+'" onclick="setAdHeaderSort(\''+key+'\')">'+label+'</th>';};
+  el.innerHTML=summary+'<div class="tbl-card"><table class="ads-table"><thead><tr>'+h('ad_name','Ad Name')+h('station_code','Station')+h('job_type_code','Role')+h('budget_per_day','Budget/day')+h('total_spend','Total Spend')+h('created_at','Created')+h('days_active','Days Active')+h('total_leads','Leads')+h('effective_status','Status')+'<th>Poster</th><th>Actions</th></tr></thead><tbody>'+body+'</tbody></table><div class="ad-cards">'+cards+'</div></div>';
+}
+
+function toggleAd(btn,adId){
+  setButtonLoading(btn,true,'Updating...');
+  google.script.run.withSuccessHandler(function(r){
+    setButtonLoading(btn,false);
+    if(!r||!r.ok){alert((r&&r.msg)||'Could not update ad status.');return;}
+    (G.adsRows||[]).forEach(function(a){
+      if(String(a.ad_id)===String(adId)||String(a.meta_ad_id)===String(adId)){
+        a.effective_status=r.status;
+        a.status=r.status==='ACTIVE'?'Active':'Paused';
+      }
+    });
+    applyAdFilters();
+  }).withFailureHandler(function(e){setButtonLoading(btn,false);err(e);}).requestToggleAdStatus(adId);
 }
 
 function setButtonLoading(btn,loading,label){
@@ -1879,16 +2123,16 @@ function submitAdModal(){
   var reason=document.getElementById('ad-modal-reason').value;
   var btn=document.getElementById('ad-modal-submit');
   setButtonLoading(btn,true,mode==='budget'?'Changing...':'Stopping...');
-  var runner=callApi('saveCell', {leadId:leadId, field:field, oldVal:oldVal, newVal:newVal}).then(function(){setButtonLoading(btn,false);closeAdModal();loadAds();}).withFailureHandler(function(e){setButtonLoading(btn,false);err(e);});
+  var runner=google.script.run.withSuccessHandler(function(){setButtonLoading(btn,false);closeAdModal();loadAds();}).withFailureHandler(function(e){setButtonLoading(btn,false);err(e);});
   if(mode==='budget') runner.requestBudgetChange(id,budget,reason||'');
   if(mode==='stop') runner.requestStopAd(id,reason||'');
 }
 
 function adminBudget(adId,budget){
-  callApi('saveCell', {leadId:leadId, field:field, oldVal:oldVal, newVal:newVal}).then(function(){loadAds();}).withFailureHandler(err).updateAdBudget(adId,budget);
+  google.script.run.withSuccessHandler(function(){loadAds();}).withFailureHandler(err).updateAdBudget(adId,budget);
 }
 
-// ── SOP & TEAM ────────────────────────────────────────────────────────
+// â”€â”€ SOP & TEAM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function loadSOP(){
   var el=document.getElementById('sop-cards');
   el.innerHTML='<div class="spin-wrap"><div class="spinner"></div></div>';
@@ -1922,7 +2166,7 @@ function loadTeam(){
       return '<div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px">'+
         '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">'+
         '<div style="width:34px;height:34px;border-radius:50%;background:rgba(212,39,90,.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--accent);flex-shrink:0">'+init+'</div>'+
-        '<div><div style="font-size:13px;font-weight:500">'+esc(u.name||'—')+'</div><div style="font-size:11px;color:var(--text3)">'+esc(u.email)+'</div></div></div>'+
+        '<div><div style="font-size:13px;font-weight:500">'+esc(u.name||'â€”')+'</div><div style="font-size:11px;color:var(--text3)">'+esc(u.email)+'</div></div></div>'+
         '<div style="display:flex;flex-wrap:wrap;gap:5px">'+
         '<span class="rbadge '+u.role+'">'+esc(u.role)+'</span>'+
         (u.state?'<span style="background:var(--bg3);font-size:10px;padding:1px 6px;border-radius:3px;color:var(--text2)">'+esc(u.state)+'</span>':'')+
@@ -1933,7 +2177,7 @@ function loadTeam(){
   }).withFailureHandler(err).getUsers();
 }
 
-// ── UTILS ─────────────────────────────────────────────────────────────
+// â”€â”€ UTILS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function num(v){return Number(v||0).toLocaleString('en-IN')}
 function shortDate(v){
   if(!v) return '-';
@@ -1955,7 +2199,7 @@ function showMailInfo(e){
   tip.innerHTML='<div style="font-weight:600;color:var(--text);margin-bottom:6px">Work Email for Associates</div>'+
     '<div>Once a candidate is <span style="color:var(--green)">Joined</span>, create a company email ID for them and update it here.</div>'+
     '<div style="margin-top:8px;color:var(--text3)">Format: <span style="font-family:monospace;color:var(--accent)">firstname.lastname@dropxlogistics.com</span></div>'+
-    '<div style="margin-top:6px;color:var(--text3)">This is optional — only fill after onboarding is complete.</div>'+
+    '<div style="margin-top:6px;color:var(--text3)">This is optional â€” only fill after onboarding is complete.</div>'+
     '<div style="margin-top:10px;text-align:right"><span onclick="document.getElementById(\'mail-tooltip\').remove()" style="cursor:pointer;color:var(--accent);font-size:11px">Close</span></div>';
   var rect=e.target.getBoundingClientRect();
   tip.style.top=(rect.bottom+8)+'px';
@@ -2002,33 +2246,6 @@ function showStaleInfo(e){
   document.body.appendChild(tip);
   setTimeout(function(){document.addEventListener('click',function h(){tip.remove();document.removeEventListener('click',h)});},100);
 }
-
-// Force Bypass Login
-setTimeout(() => {
-  var ls = document.getElementById('login-screen');
-  if(ls) ls.style.display = 'none';
-  var ap = document.getElementById('app');
-  if(ap) ap.style.display = 'flex';
-}, 100);
-
-
-window.onload = function() {
-  // BYPASS LOGIN SCREEN
-  var loginScreen = document.getElementById('login-screen');
-  var appScreen = document.getElementById('app');
-  if(loginScreen) loginScreen.style.display = 'none';
-  if(appScreen) appScreen.style.display = 'flex';
-
-  // LOAD DATA FROM API
-  callApi('getInitialData').then(data => {
-    if (data && !data.error) {
-      initApp(data);
-    } else {
-      console.error("Failed to load initial data", data);
-    }
-  });
-};
-
 </script>
 </body>
 </html>
