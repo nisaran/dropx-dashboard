@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DropX Leads</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dx-yellow:#F5A800; --dx-orange:#E06B00; --dx-red:#C0282A; --dx-pink:#D4275A; --dx-grey:#555558;
+  --bg:#f6f7fb; --bg2:#ffffff; --bg3:#f0f2f6;
+  --border:#dde1e8; --border2:#c7ceda;
+  --text:#17202f; --text2:#586274; --text3:#7c8494;
+  --accent:#D4275A; --green:#22c55e; --amber:#F5A800; --red:#C0282A; --teal:#14b8a6;
+  --r:8px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f1117; --bg2:#171a1f; --bg3:#1e2128;
+    --border:#252830; --border2:#2e3240;
+    --text:#f0f0f0; --text2:#a0a4b0; --text3:#626875;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:13px}
 
+/* ── LOGIN SCREEN ── */
+#login-screen{display:none;position:fixed;inset:0;background:var(--bg);z-index:999;
+  flex-direction:column;align-items:center;justify-content:center;gap:24px}
+#login-screen.show{display:flex}
+.login-box{background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  padding:40px 48px;text-align:center;max-width:380px;width:90%}
+.login-logo{margin-bottom:20px;display:flex;justify-content:center}
+.login-title{font-size:18px;font-weight:600;margin-bottom:6px}
+.login-sub{font-size:12px;color:var(--text3);margin-bottom:28px}
+.login-btn{display:inline-flex;align-items:center;gap:10px;background:white;color:#333;
+  font-size:13px;font-weight:500;padding:10px 20px;border-radius:8px;border:none;
+  cursor:pointer;font-family:inherit;transition:opacity .15s}
+.login-btn:hover{opacity:.88}
+.login-btn svg{flex-shrink:0}
+.login-bar{height:3px;width:100%;background:linear-gradient(90deg,var(--dx-yellow),var(--dx-orange),var(--dx-red),var(--dx-pink));border-radius:0 0 14px 14px;margin-top:28px}
+
+/* ── LAYOUT ── */
+#app{display:flex;height:100vh;overflow:hidden}
+#side{width:210px;min-width:210px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column}
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+#bar{height:52px;min-height:52px;background:var(--bg2);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 20px;gap:12px;position:relative}
+#bar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--dx-yellow),var(--dx-orange),var(--dx-red),var(--dx-pink))}
+#content{flex:1;overflow:hidden;display:flex;flex-direction:column}
+
+/* ── SIDEBAR ── */
+.logo{padding:16px 16px 14px;border-bottom:1px solid var(--border)}
+.logo-sub{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+.nav{flex:1;padding:8px;overflow-y:auto}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:6px;
+  cursor:pointer;color:var(--text2);font-size:12px;transition:all .12s;margin-bottom:1px}
+.nav-item:hover{background:rgba(212,39,90,.08);color:var(--text)}
+.nav-item.active{background:rgba(212,39,90,.12);color:var(--accent);font-weight:600}
+.nav-sect{font-size:10px;color:var(--text3);padding:8px 10px 3px;text-transform:uppercase;letter-spacing:.8px}
+.nav-badge{margin-left:auto;background:var(--dx-red);color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:10px}
+.side-user{padding:12px 14px;border-top:1px solid var(--border)}
+.u-chip{display:flex;align-items:center;gap:9px}
+.u-av{width:28px;height:28px;border-radius:50%;background:rgba(212,39,90,.15);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--accent);flex-shrink:0}
+.u-name{font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.u-role{font-size:10px;color:var(--text3);margin-top:1px}
+.rbadge{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:600;text-transform:uppercase}
+.rbadge.admin,.rbadge.Owner,.rbadge.HR,.rbadge.Finance{background:rgba(212,39,90,.12);color:var(--accent)}
+.rbadge.RM,.rbadge.regional{background:rgba(20,184,166,.12);color:var(--teal)}
+.rbadge.cluster{background:rgba(245,168,0,.12);color:var(--amber)}
+.rbadge.tl{background:rgba(224,107,0,.12);color:var(--dx-orange)}
+
+/* ── TOPBAR ── */
+.page-title{font-size:14px;font-weight:600;flex:1}
+.sync-btn{display:flex;align-items:center;gap:5px;padding:6px 12px;border:1px solid var(--border2);
+  border-radius:6px;background:transparent;color:var(--text2);font-size:11px;cursor:pointer;
+  font-family:inherit;transition:all .12s}
+.sync-btn:hover{border-color:var(--dx-pink);color:var(--dx-pink)}
+.sync-btn.spin svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sync-time{font-size:11px;color:var(--text3)}
+.fetch-btn{height:30px;display:inline-flex;align-items:center;gap:6px;padding:0 10px;border:1px solid var(--border2);
+  border-radius:6px;background:rgba(245,168,0,.08);color:var(--dx-yellow);font-size:11px;font-weight:600;
+  cursor:pointer;font-family:inherit;white-space:nowrap}
+.fetch-btn:hover{border-color:var(--dx-yellow)}
+.fetch-btn.spin svg{animation:spin 1s linear infinite}
+.fetch-note{width:100%;font-size:10px;color:var(--text3);padding:0 1px 2px}
+
+/* ── STATS ── */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;padding:16px 16px 0}
+.stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;cursor:pointer;transition:border-color .12s}
+.stat:hover{border-color:var(--border2)}
+.stat-l{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.7px;margin-bottom:5px}
+.stat-v{font-size:24px;font-weight:700;line-height:1}
+.s-total .stat-v{color:var(--text)}
+.s-pending .stat-v{color:var(--dx-yellow)}
+.s-interview .stat-v{color:var(--green)}
+.s-callback .stat-v{color:var(--dx-pink)}
+.s-stale .stat-v{color:var(--dx-red)}
+
+/* ── FILTER BAR ── */
+.filters{display:flex;align-items:center;gap:6px;padding:10px 16px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.fi input,.fi select{background:var(--bg2);border:1px solid var(--border);border-radius:6px;
+  padding:5px 8px;color:var(--text);font-size:12px;font-family:inherit;height:30px}
+.fi input{padding-left:26px;width:180px}
