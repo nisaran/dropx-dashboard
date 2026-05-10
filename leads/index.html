@@ -767,7 +767,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
 // Change DROPX_API_URL only if you redeploy Apps Script and get a new /exec URL.
 // Replace DROPX_GOOGLE_CLIENT_ID with your Google OAuth Web Client ID.
 window.DROPX_API_URL = 'https://script.google.com/macros/s/AKfycbwQXPeRW4I5_LBoB14kmmwvLS5jMuabHqHIjjpKj88DtEIXFZrGJhXK1qXVXzw5JnjbcQ/exec';
-window.DROPX_GOOGLE_CLIENT_ID = '643379754939-sb2qpikb5mioidksnp36of3rlsk82i1a.apps.googleusercontent.com';
+window.DROPX_GOOGLE_CLIENT_ID = 'PASTE_YOUR_GOOGLE_CLIENT_ID_HERE.apps.googleusercontent.com';
 
 (function () {
   function getIdToken() {
@@ -829,7 +829,7 @@ window.DROPX_GOOGLE_CLIENT_ID = '643379754939-sb2qpikb5mioidksnp36of3rlsk82i1a.a
             width: 260
           });
         }
-        google.accounts.id.prompt();
+        // Prompt is user-triggered via the Sign in button to avoid refresh/login loops.
       } else if (tries > 40) {
         clearInterval(timer);
         showAppMessage('Could not load Google Sign-In. Refresh the page and try again.');
@@ -865,7 +865,7 @@ window.DROPX_GOOGLE_CLIENT_ID = '643379754939-sb2qpikb5mioidksnp36of3rlsk82i1a.a
               return data.result;
             })
             .catch(function (err) {
-              if (/sign in|token|expired|Invalid Google/i.test(err.message || '')) {
+              if (/expired/i.test(err.message || '')) {
                 localStorage.removeItem('dropx_google_id_token');
                 initGoogleLogin();
               }
@@ -939,10 +939,11 @@ window.startDropxApp=function(){
   })
     .withFailureHandler(function(e){
       console.error(e);
-      if(/sign in|token|expired|Invalid Google|Client ID/i.test((e&&e.message)||'')){
+      if(/expired/i.test((e&&e.message)||'')){
+        localStorage.removeItem('dropx_google_id_token');
         initGoogleLogin();
       }else{
-        showAppMessage('Could not read the Google Sheet. Please deploy the Apps Script backend as owner and refresh.');
+        showAppMessage('Could not read the Google Sheet: '+esc((e&&e.message)||e||'Unknown error'));
       }
     })
     .getDashboardData();
@@ -1690,14 +1691,9 @@ function refreshActivePage(){
 
 var autoRefreshTimer=null;
 function startAutoRefresh(){
-  if(autoRefreshTimer) clearInterval(autoRefreshTimer);
-  autoRefreshTimer=setInterval(function(){
-    if(!G.user) return;
-    refreshDashboard();
-    if(G.activePage==='leads') loadLeads(null,true);
-    if(G.activePage==='pending') loadPending(true);
-    if(G.activePage==='interviews') loadInterviews(true);
-  },20000);
+  // Disabled while debugging GitHub frontend + Apps Script backend auth.
+  // Re-enable later after leads load correctly.
+  return;
 }
 
 // â”€â”€ TABLE RENDERER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -2379,5 +2375,6 @@ function showStaleInfo(e){
 </script>
 </body>
 </html>
+
 
 
