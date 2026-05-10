@@ -24,7 +24,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:13px}
 
-/* â”€â”€ LOGIN SCREEN â”€â”€ */
+/* -- */
 #login-screen{display:none;position:fixed;inset:0;background:var(--bg);z-index:999;
   flex-direction:column;align-items:center;justify-content:center;gap:24px}
 #login-screen.show{display:flex}
@@ -40,7 +40,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .login-btn svg{flex-shrink:0}
 .login-bar{height:3px;width:100%;background:linear-gradient(90deg,var(--dx-yellow),var(--dx-orange),var(--dx-red),var(--dx-pink));border-radius:0 0 14px 14px;margin-top:28px}
 
-/* â”€â”€ LAYOUT â”€â”€ */
+/* -- */
 #app{display:flex;height:100vh;overflow:hidden}
 #side{width:210px;min-width:210px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column}
 #main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
@@ -50,7 +50,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
   background:linear-gradient(90deg,var(--dx-yellow),var(--dx-orange),var(--dx-red),var(--dx-pink))}
 #content{flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0}
 
-/* â”€â”€ SIDEBAR â”€â”€ */
+/* -- */
 .logo{padding:16px 16px 14px;border-bottom:1px solid var(--border)}
 .logo-sub{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
 .nav{flex:1;padding:8px;overflow-y:auto}
@@ -72,7 +72,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .rbadge.cluster{background:rgba(245,168,0,.12);color:var(--amber)}
 .rbadge.tl{background:rgba(224,107,0,.12);color:var(--dx-orange)}
 
-/* â”€â”€ TOPBAR â”€â”€ */
+/* -- */
 .page-title{font-size:14px;font-weight:600;flex:1}
 .sync-btn{display:flex;align-items:center;gap:5px;padding:6px 12px;border:1px solid var(--border2);
   border-radius:6px;background:transparent;color:var(--text2);font-size:11px;cursor:pointer;
@@ -91,7 +91,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .btn-resume{border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.1);color:var(--green)}
 .btn-stop{border-color:rgba(192,40,42,.35);background:rgba(192,40,42,.08);color:var(--dx-red)}
 
-/* â”€â”€ STATS â”€â”€ */
+/* -- */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;padding:16px 16px 0}
 .stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;cursor:pointer;transition:border-color .12s}
 .stat:hover{border-color:var(--border2)}
@@ -103,7 +103,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .s-callback .stat-v{color:var(--dx-pink)}
 .s-stale .stat-v{color:var(--dx-red)}
 
-/* â”€â”€ FILTER BAR â”€â”€ */
+/* -- */
 .filters{display:flex;align-items:center;gap:6px;padding:10px 16px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
 .fi input,.fi select{background:var(--bg2);border:1px solid var(--border);border-radius:6px;
   padding:5px 8px;color:var(--text);font-size:12px;font-family:inherit;height:30px}
@@ -135,16 +135,16 @@ select[multiple] option:checked{background:rgba(212,39,90,.15);color:var(--accen
 .ms-item span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ms-empty{padding:10px;color:var(--text3);font-size:12px;text-align:center}
 
-/* â”€â”€ TABLE â”€â”€ */
+/* -- */
 .tbl-wrap{flex:1;overflow:auto;padding:0 16px 16px;min-height:0;max-width:100%;scrollbar-gutter:stable}
 .tbl-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:auto;margin-top:12px;max-width:100%;scrollbar-gutter:stable}
 table{width:100%;border-collapse:collapse}
 .tbl-card table{min-width:980px}
 .sort-th{cursor:pointer;user-select:none}
 .sort-th:hover{color:var(--accent)}
-.sort-th:after{content:' â†•';font-size:9px;color:var(--text3)}
-.sort-th.asc:after{content:' â†‘';color:var(--accent)}
-.sort-th.desc:after{content:' â†“';color:var(--accent)}
+.sort-th:after{content:' ↕';font-size:9px;color:var(--text3)}
+.sort-th.asc:after{content:' ↑';color:var(--accent)}
+.sort-th.desc:after{content:' ↓';color:var(--accent)}
 th{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;
   padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);
   background:var(--bg3);white-space:nowrap;position:sticky;top:0;z-index:1}
@@ -152,7 +152,7 @@ td{padding:0;border-bottom:1px solid rgba(37,40,48,.7);vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(255,255,255,.015)}
 
-/* â”€â”€ CELLS â”€â”€ */
+/* -- */
 .cell{padding:7px 10px;min-height:42px;display:flex;align-items:center;overflow:hidden}
 .c-name{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}
 .c-sub{font-size:10px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -179,12 +179,12 @@ tr:hover td{background:rgba(255,255,255,.015)}
 .profile-grid span{display:block;white-space:normal;word-break:break-word;color:var(--text2)}
 .info-dot{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;border:1px solid var(--text3);color:var(--text3);font-size:9px;cursor:pointer;margin-left:4px;font-style:normal}
 
-/* â”€â”€ LAST UPDATED â”€â”€ short, compact â”€â”€ */
+/* -- */
 .c-ts{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;white-space:nowrap;
   overflow:hidden;text-overflow:ellipsis;line-height:1.3}
 .c-ts span{display:block;font-size:9px;color:var(--text3);opacity:.7}
 
-/* â”€â”€ INLINE EDITABLE â”€â”€ */
+/* -- */
 .status-sel{width:100%;min-height:42px;background:transparent;border:none;color:var(--text);
   font-size:12px;font-family:inherit;cursor:pointer;padding:0 10px;
   appearance:none;-webkit-appearance:none}
@@ -204,13 +204,13 @@ tr:hover td{background:rgba(255,255,255,.015)}
 .final-sel:focus{outline:none;background:var(--bg3)}
 .final-sel option{background:var(--bg2)}
 
-/* â”€â”€ SAVING INDICATOR â”€â”€ */
+/* -- */
 .dot-save{display:inline-block;width:5px;height:5px;border-radius:50%;
   background:var(--amber);animation:pulse .8s ease infinite;margin-left:3px;vertical-align:middle}
 .dot-ok{background:var(--green);animation:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* â”€â”€ STALE ALERT â”€â”€ */
+/* -- */
 .stale-bar{display:flex;align-items:center;gap:10px;margin:12px 16px 0;
   background:rgba(192,40,42,.07);border:1px solid rgba(192,40,42,.2);
   border-radius:var(--r);padding:8px 14px;font-size:12px;color:var(--text2);cursor:pointer}
@@ -255,21 +255,21 @@ tr:hover td{background:rgba(255,255,255,.015)}
 .legend-item b{font-family:'DM Mono',monospace;color:var(--accent);font-size:12px}
 .legend-item span{display:block;color:var(--text2);font-size:11px;margin-top:4px}
 
-/* â”€â”€ LOADING / EMPTY â”€â”€ */
+/* -- */
 .empty{padding:48px;text-align:center;color:var(--text3)}
 .spin-wrap{display:flex;align-items:center;justify-content:center;padding:48px}
 .spinner{width:20px;height:20px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
 .btn-spinner{width:13px;height:13px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
 
-/* â”€â”€ PAGES â”€â”€ */
+/* -- */
 .page{display:none;flex-direction:column;min-height:0;overflow:hidden;flex:1}
 .page.active{display:flex}
 
-/* â”€â”€ INFO BANNER â”€â”€ */
+/* -- */
 .info-banner{display:flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(212,39,90,.05);
   border-bottom:1px solid rgba(212,39,90,.1);font-size:11px;color:var(--text3)}
 
-/* â”€â”€ REPORTS â”€â”€ */
+/* -- */
 .report-wrap{padding:20px;overflow:auto;flex:1;min-height:0;max-width:100%;scrollbar-gutter:stable}
 .report-panel{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;max-width:980px;min-width:0}
 .report-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:14px}
@@ -309,7 +309,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
 .ad-status-active{color:var(--green)}
 .ad-status-paused{color:var(--dx-yellow)}
 
-/* â”€â”€ MOBILE â”€â”€ */
+/* -- */
 @media(max-width:700px){
   #side{display:none}
   #mob-nav{display:flex}
@@ -437,7 +437,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
       <div class="u-av" id="uav">?</div>
       <div style="min-width:0">
         <div class="u-name" id="uname">...</div>
-        <div class="u-role"><span class="rbadge" id="urole">â€”</span></div>
+        <div class="u-role"><span class="rbadge" id="urole">-</span></div>
       </div>
     </div>
   </div>
@@ -484,7 +484,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
       <div class="filters">
         <div class="fi">
           <svg class="search-icon" width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="6" cy="6" r="4"/><path d="M11 11l3 3"/></svg>
-          <input type="text" id="f-search" placeholder="Name, phone, cityâ€¦" oninput="applyFilters('leads')">
+          <input type="text" id="f-search" placeholder="Name, phone, city..." oninput="applyFilters('leads')">
         </div>
         <div id="ms-f-status" class="ms" data-label="All Status"></div>
         <div id="ms-f-station" class="ms" data-label="All Stations"></div>
@@ -494,7 +494,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
           Fetch Leads
         </button>
-        <span class="filter-count" id="fc-leads">â€”</span>
+        <span class="filter-count" id="fc-leads">-</span>
         <div class="fetch-note" id="fetch-note-leads"></div>
       </div>
       <div class="tbl-wrap" style="padding-top:0" id="leads-tbl"></div>
@@ -505,12 +505,12 @@ tr:hover td{background:rgba(255,255,255,.015)}
       <div class="filters">
         <div class="fi">
           <svg class="search-icon" width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="6" cy="6" r="4"/><path d="M11 11l3 3"/></svg>
-          <input type="text" id="pf-search" placeholder="Name, phone, cityâ€¦" oninput="applyFilters('pending')">
+          <input type="text" id="pf-search" placeholder="Name, phone, city..." oninput="applyFilters('pending')">
         </div>
         <div id="ms-pf-station" class="ms" data-label="All Stations"></div>
         <div id="ms-pf-cluster" class="ms" data-label="All Clusters"></div>
         <div id="ms-pf-age" class="ms" data-label="All Updated"></div>
-        <span class="filter-count" id="fc-pending">â€”</span>
+        <span class="filter-count" id="fc-pending">-</span>
       </div>
       <div class="tbl-wrap" style="padding-top:0" id="pending-tbl"></div>
     </div>
@@ -520,7 +520,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
       <div class="filters">
         <div class="fi">
           <svg class="search-icon" width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="6" cy="6" r="4"/><path d="M11 11l3 3"/></svg>
-          <input type="text" id="if-search" placeholder="Name, phoneâ€¦" oninput="applyFilters('interviews')">
+          <input type="text" id="if-search" placeholder="Name, phone..." oninput="applyFilters('interviews')">
         </div>
         <div id="ms-if-station" class="ms" data-label="All Stations"></div>
         <div id="ms-if-cluster" class="ms" data-label="All Clusters"></div>
@@ -533,7 +533,7 @@ tr:hover td{background:rgba(255,255,255,.015)}
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
           Fetch Interviews
         </button>
-        <span class="filter-count" id="fc-interviews">â€”</span>
+        <span class="filter-count" id="fc-interviews">-</span>
         <div class="fetch-note" id="fetch-note-interviews"></div>
       </div>
       <div class="tbl-wrap" style="padding-top:0" id="interviews-tbl"></div>
@@ -821,7 +821,7 @@ var ADMIN_ROLES=['admin','owner','hr','finance'];
 function roleKey(u){return String((u&&u.roleKey)||((u&&u.role)||'')).toLowerCase()}
 function isAdmin(u){return u&&(u.isAdmin||ADMIN_ROLES.indexOf(roleKey(u))!==-1)}
 
-// â”€â”€ LOGIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 // Google Apps Script enforces Google login natively when deployed as
 // "Anyone with Google account". The login screen below is a UX layer
 // shown while we verify the user exists in the Users sheet.
@@ -872,7 +872,7 @@ window.startDropxApp=function(){
 };
 window.onload=function(){ if(localStorage.getItem('dropx_google_id_token')) window.startDropxApp(); else initGoogleLogin(); };
 
-// â”€â”€ USER RENDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 function renderUser(){
   var u=G.user;
   document.getElementById('uav').textContent=(u.name||'?')[0].toUpperCase();
@@ -892,7 +892,7 @@ function renderUser(){
   if(mobTeam) mobTeam.style.display=(isAdmin(u)||roleKey(u)==='rm')?'flex':'none';
 }
 
-// â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 var PAGE_TITLES={dash:'Dashboard',leads:'All Leads',pending:'No Response / Call Back',
   interviews:'Interview Scheduled',reports:'Reports',ads:'Active Ads',sop:'Ad SOP',team:'Team'};
 
@@ -929,7 +929,7 @@ function openStationLeads(station,status){
   nav('leads',{station:station,status:status||''});
 }
 
-// â”€â”€ DASHBOARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 function renderDash(d){
   var s=d.stats;
   setText('sv-total',s.total);
@@ -1023,7 +1023,7 @@ function renderDashboardSummary(){
     };
   }).filter(function(r){return r.action>0;}).sort(function(a,b){return b.action-a.action;}).slice(0,5);
   function topLine(list,key){
-    return list.map(function(r){return esc(r.station_code||'')+' '+num(r[key]||0);}).join(' Â· ')||'-';
+    return list.map(function(r){return esc(r.station_code||'')+' '+num(r[key]||0);}).join(' - ')||'-';
   }
   function pct(v,d){return num(Math.round((Number(v||0)/Math.max(1,Number(d||0)))*100))+'%';}
   var insightHtml='<div class="dash-insights">'+
@@ -1040,7 +1040,7 @@ function renderDashboardSummary(){
   var actionHtml=actionRows.length?actionRows.map(function(r){
     return '<div class="action-row" onclick="openStationLeads(\''+esc(r.station_code)+'\')">'+
       '<span class="c-station">'+esc(r.station_code)+'</span>'+
-      '<div><b>'+esc(r.station_name||'')+'</b><span>'+esc(r.cluster||'')+' Â· '+num(r.noStatus)+' no status Â· '+num(r.stale)+' 24h+</span></div>'+
+      '<div><b>'+esc(r.station_name||'')+'</b><span>'+esc(r.cluster||'')+' - '+num(r.noStatus)+' no status - '+num(r.stale)+' 24h+</span></div>'+
       '<strong>'+num(r.action)+'</strong></div>';
   }).join(''):'<div class="empty" style="padding:22px">No urgent station action right now</div>';
   document.getElementById('dash-tbl').innerHTML=
@@ -1048,7 +1048,7 @@ function renderDashboardSummary(){
       '<div class="dash-col">'+
         '<div class="dash-card"><div class="dash-card-h">Today\'s Work Queue</div>'+queueHtml+'</div>'+
         '<div class="dash-card"><div class="dash-card-h">Needs Action</div><div class="action-list">'+actionHtml+'</div></div>'+
-        '<div class="dash-card"><div class="dash-card-h">Status Breakdown</div><div style="padding:8px 12px;color:var(--text3);font-size:11px">Status total: '+num(accounted)+' / '+num(totals.total||0)+'</div>'+chart+'<div style="padding:8px 12px;color:var(--text3);font-size:11px">Final outcomes: Joined '+num(totals.joined||0)+' Â· Dropped '+num(totals.dropped||0)+'</div></div>'+
+        '<div class="dash-card"><div class="dash-card-h">Status Breakdown</div><div style="padding:8px 12px;color:var(--text3);font-size:11px">Status total: '+num(accounted)+' / '+num(totals.total||0)+'</div>'+chart+'<div style="padding:8px 12px;color:var(--text3);font-size:11px">Final outcomes: Joined '+num(totals.joined||0)+' - Dropped '+num(totals.dropped||0)+'</div></div>'+
       '</div>'+
       '<div class="dash-col">'+
         '<div class="dash-card"><div class="dash-card-h">Hiring Visibility</div>'+insightHtml+'</div>'+
@@ -1067,7 +1067,7 @@ function renderRoleLegend(){
   document.getElementById('role-legend').innerHTML=rows;
 }
 
-// â”€â”€ LOAD LEADS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 function loadLeads(preFilters,silent){
   if(!silent) document.getElementById('leads-tbl').innerHTML='<div class="spin-wrap"><div class="spinner"></div></div>';
   if(preFilters){
@@ -1155,7 +1155,7 @@ function showFetchNote(kind,r){
   note.textContent='Meta rows: '+num(r.metaRows||0)+' | LeadsDB rows: '+num(r.dbRows||0)+' | Visible to you: '+num(r.visibleRows||0)+' | '+pageLabel+': '+num(pageRows)+' | New synced: '+num(r.synced||0);
 }
 
-// â”€â”€ FILTERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 function getMultiSelect(id){
   var key=id.indexOf('ms-')===0?id.substring(3):id;
   return G.multi[key]?G.multi[key].selected.slice():[];
@@ -1439,7 +1439,7 @@ function isStalePendingLead(l){
   return (new Date()-base)/3600000>24;
 }
 
-// â”€â”€ STATIONS & CLUSTERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 function loadStationsAndClusters(){
   google.script.run.withSuccessHandler(function(stations){
     G.stations=stations||[];
@@ -1494,7 +1494,7 @@ function cascadeStations(prefix){
   msRender(key);
 }
 
-// â”€â”€ REPORTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 function initReports(){
   if(!G.stations||!G.stations.length) loadStationsAndClusters();
   setSpendWeekDefaults();
@@ -1611,7 +1611,7 @@ var autoRefreshTimer=null;
 function startAutoRefresh(){ return; }
 
 
-// â”€â”€ TABLE RENDERER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 var STATUS_OPTS=['','No Response','Not Interested','Call Back','Long Distance','Interview Scheduled','Not Fit'];
 
 function renderTable(leads, mode){
@@ -1630,21 +1630,21 @@ function renderTable(leads, mode){
     var jc=l.job_type_code||'DA';
     var sCls=l.station_code==='UNKNOWN'?'c-station c-unk':'c-station';
     var platform=(l.platform||'').toLowerCase();
-    var platIcon=platform==='ig'?'IG':platform==='fb'?'FB':'â€”';
+    var platIcon=platform==='ig'?'IG':platform==='fb'?'FB':'-';
 
     // Status colour and display
     var stCol=statusColor(l.call_status);
     var stDisplay=l.call_status||'';
     var opts=STATUS_OPTS.map(function(o){
-      return '<option value="'+esc(o)+'"'+(l.call_status===o?' selected':'')+'>'+( o||'â€” select â€”')+'</option>';
+      return '<option value="'+esc(o)+'"'+(l.call_status===o?' selected':'')+'>'+( o||'- select -')+'</option>';
     }).join('');
 
-    // Last updated â€” short format
-    var tsHtml='<div class="c-ts">â€”</div>';
+    // Last updated - short format
+    var tsHtml='<div class="c-ts">-</div>';
     if(l.last_updated){
       var parts=String(l.last_updated).replace(' IST','').split(' ');
       tsHtml='<div class="c-ts">'+esc(parts[0]||'')+
-        '<span>'+esc(parts[1]||'')+' '+(l.updated_by?'Â· '+esc(String(l.updated_by).split('@')[0]):'')+'</span></div>';
+        '<span>'+esc(parts[1]||'')+' '+(l.updated_by?'- '+esc(String(l.updated_by).split('@')[0]):'')+'</span></div>';
     }
 
     // Interview date cell
@@ -1652,17 +1652,17 @@ function renderTable(leads, mode){
       ? '<input type="date" class="date-inp" value="'+esc(l.follow_up_date||'')+'" onchange="save(\''+lid+'\',\'follow_up_date\',this.value,this)">'
       : (l.call_status==='Call Back'
         ? '<input type="datetime-local" class="date-inp" value="'+esc(l.callback_at||'')+'" onchange="save(\''+lid+'\',\'callback_at\',this.value,this)">'
-        : '<div class="cell c-sub" style="padding-left:10px">â€”</div>');
+        : '<div class="cell c-sub" style="padding-left:10px">-</div>');
 
     var row='<tr id="row-'+lid+'" style="'+(stale?'background:rgba(192,40,42,.03)':'')+'">'+
       '<td style="min-width:130px"><div class="cell" style="flex-direction:column;align-items:flex-start;gap:1px">'+
-        '<div class="c-name">'+esc(l.full_name||'â€”')+'</div>'+
+        '<div class="c-name">'+esc(l.full_name||'-')+'</div>'+
         '<div class="c-sub">'+esc(l.city||'')+' '+esc(l.post_code||'')+'</div>'+
         (sla?'<span class="sla-pill">'+esc(sla)+'</span>':'')+
         (dup>1?'<span class="dup-pill">Duplicate x'+dup+'</span>':'')+
         renderProfileDetails(l)+
       '</div></td>'+
-      '<td style="min-width:100px"><div class="cell"><a class="c-phone" href="tel:'+esc(l.phone)+'">'+esc(l.phone||'â€”')+'</a></div></td>'+
+      '<td style="min-width:100px"><div class="cell"><a class="c-phone" href="tel:'+esc(l.phone)+'">'+esc(l.phone||'-')+'</a></div></td>'+
       '<td style="min-width:70px"><div class="cell"><span class="'+sCls+'" title="'+esc(l.station_name||'')+'">'+esc(l.station_code||'?')+'</span></div></td>'+
       '<td style="min-width:50px"><div class="cell"><span class="job-badge j-'+jc+'">'+jc+'</span></div></td>'+
       '<td style="min-width:35px"><div class="cell c-sub" style="font-size:10px;justify-content:center">'+platIcon+'</div></td>';
@@ -1674,11 +1674,11 @@ function renderTable(leads, mode){
         '</td>'+
         '<td style="min-width:100px;padding:0">'+intCell+'</td>'+
         '<td style="min-width:160px;padding:0">'+
-          '<textarea class="remarks-inp" placeholder="Remarksâ€¦" onblur="save(\''+lid+'\',\'remarks\',this.value,this)">'+esc(l.remarks||'')+'</textarea>'+
+          '<textarea class="remarks-inp" placeholder="Remarks..." onblur="save(\''+lid+'\',\'remarks\',this.value,this)">'+esc(l.remarks||'')+'</textarea>'+
         '</td>';
       if(isInterview){
         var finalOpts=['','Joined','Dropped','No Response','Not Interested','Not Fit'].map(function(o){
-          return '<option value="'+o+'"'+(l.final_status===o?' selected':'')+'>'+( o||'â€” final status â€”')+'</option>';
+          return '<option value="'+o+'"'+(l.final_status===o?' selected':'')+'>'+( o||'- final status -')+'</option>';
         }).join('');
         var finalCol=l.final_status==='Joined'?'var(--green)':
           l.final_status==='Dropped'||l.final_status==='Not Interested'||l.final_status==='Not Fit'?'var(--dx-red)':
@@ -1688,7 +1688,7 @@ function renderTable(leads, mode){
             '<select class="final-sel" onchange="save(\''+lid+'\',\'final_status\',this.value,this)" style="color:'+finalCol+'">'+finalOpts+'</select>'+
           '</td>'+
           '<td style="min-width:150px;padding:0">'+
-            '<textarea class="remarks-inp" placeholder="Final remarksâ€¦" onblur="save(\''+lid+'\',\'final_remarks\',this.value,this)">'+esc(l.final_remarks||'')+'</textarea>'+
+            '<textarea class="remarks-inp" placeholder="Final remarks..." onblur="save(\''+lid+'\',\'final_remarks\',this.value,this)">'+esc(l.final_remarks||'')+'</textarea>'+
           '</td>'+
           '<td style="min-width:160px;padding:0">'+
             '<input type="email" class="date-inp" placeholder="associate@email.com" value="'+esc(l.work_email||'')+'" onblur="save(\''+lid+'\',\'work_email\',this.value,this)" style="font-size:11px">'+
@@ -1696,7 +1696,7 @@ function renderTable(leads, mode){
       }
     } else {
       // Dashboard: read-only status + timestamp
-      row+='<td><div class="cell"><span style="font-size:11px;color:'+stCol+'">'+esc(stDisplay||'â€”')+'</span></div></td>';
+      row+='<td><div class="cell"><span style="font-size:11px;color:'+stCol+'">'+esc(stDisplay||'-')+'</span></div></td>';
     }
 
     row+='<td style="min-width:90px" id="ts-'+lid+'">'+
@@ -1763,7 +1763,7 @@ function renderLeadCard(l,mode){
     return '<option value="'+esc(o)+'"'+(l.final_status===o?' selected':'')+'>'+( o||'final status')+'</option>';
   }).join('');
   var html='<div class="lead-card" id="mrow-'+lid+'">'+
-    '<div class="lead-card-top"><div><div class="lead-card-title">'+esc(l.full_name||'-')+'</div><div class="lead-card-meta">'+esc(l.city||'')+' '+esc(l.post_code||'')+' Â· '+esc(l.phone||'')+'</div></div><span class="c-station">'+esc(l.station_code||'?')+'</span></div>'+
+    '<div class="lead-card-top"><div><div class="lead-card-title">'+esc(l.full_name||'-')+'</div><div class="lead-card-meta">'+esc(l.city||'')+' '+esc(l.post_code||'')+' - '+esc(l.phone||'')+'</div></div><span class="c-station">'+esc(l.station_code||'?')+'</span></div>'+
     (l.sla_status?'<span class="sla-pill">'+esc(l.sla_status)+'</span>':'')+
     (Number(l.duplicate_count||0)>1?'<span class="dup-pill">Duplicate x'+esc(l.duplicate_count)+'</span>':'')+
     renderProfileDetails(l)+
@@ -1790,7 +1790,7 @@ function statusColor(s){
   return 'var(--text2)';
 }
 
-// â”€â”€ INLINE SAVE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 var _timers={};
 function localLeadValue(leadId,field){
   var lists=[G.allLeads,G.pendingLeads,G.interviewLeads];
@@ -1824,7 +1824,7 @@ function save(leadId,field,value,el){
             var dateInput=intTd.querySelector('input');
             if(dateInput) setTimeout(function(){dateInput.focus();},20);
           } else {
-            intTd.innerHTML='<div class="cell c-sub" style="padding-left:10px">â€”</div>';
+            intTd.innerHTML='<div class="cell c-sub" style="padding-left:10px">-</div>';
           }
         }
       }
@@ -1845,9 +1845,9 @@ function save(leadId,field,value,el){
               if(existing){
                 var parts=String(existing).replace(' IST','').split(' ');
                 tsCell.innerHTML='<div class="cell" style="padding:4px 8px"><div class="c-ts">'+
-                  esc(parts[0]||'')+'<span>'+esc(parts[1]||'')+(by?' Â· '+esc(String(by).split('@')[0]):'')+'</span></div></div>';
+                  esc(parts[0]||'')+'<span>'+esc(parts[1]||'')+(by?' - '+esc(String(by).split('@')[0]):'')+'</span></div></div>';
               } else {
-                tsCell.innerHTML='<div class="cell" style="padding:4px 8px"><div class="c-sub">â€”</div></div>';
+                tsCell.innerHTML='<div class="cell" style="padding:4px 8px"><div class="c-sub">-</div></div>';
               }
             }
             return;
@@ -1861,7 +1861,7 @@ function save(leadId,field,value,el){
             return;
           }
           var parts=r.stamp.replace(' IST','').split(' ');
-          var by=r.updatedBy?'Â· '+r.updatedBy.split('@')[0]:'';
+          var by=r.updatedBy?'- '+r.updatedBy.split('@')[0]:'';
           tsCell.innerHTML='<div class="cell" style="padding:4px 8px"><div class="c-ts">'+
             parts[0]+'<span>'+parts[1]+' '+by+' <span class="dot-ok dot-save"></span></span></div></div>';
           setTimeout(function(){
@@ -1891,7 +1891,7 @@ function updateLocalLead(leadId,field,value){
   });
 }
 
-// â”€â”€ SYNC â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 function doSync(){
   var btn=document.getElementById('sbtn');
   btn.classList.add('spin');
@@ -1904,7 +1904,7 @@ function doSync(){
   }).withFailureHandler(function(e){btn.classList.remove('spin');err(e);}).syncLeads();
 }
 
-// â”€â”€ ACTIVE ADS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 function loadAds(forceSync){
   var el=document.getElementById('ads-list');
   if(!el) return;
@@ -2018,8 +2018,8 @@ function renderAds(rows){
     else if(s==='ACTIVE') activeCount++;
   });
   var summary='<div class="ad-spend-summary">'+
-    '<div><div class="ad-spend-label">Daily Active Budget</div><div class="ad-spend-value">â‚¹ '+num(dailyTotal)+'</div></div>'+
-    '<div class="ad-spend-meta"><strong>'+num(activeCount)+'</strong> active Â· <strong>'+num(pausedCount)+'</strong> paused<br><strong>'+num(Object.keys(stationCount).length)+'</strong> stations visible</div>'+
+    '<div><div class="ad-spend-label">Daily Active Budget</div><div class="ad-spend-value">Rs. '+num(dailyTotal)+'</div></div>'+
+    '<div class="ad-spend-meta"><strong>'+num(activeCount)+'</strong> active - <strong>'+num(pausedCount)+'</strong> paused<br><strong>'+num(Object.keys(stationCount).length)+'</strong> stations visible</div>'+
   '</div>';
   var body=rows.map(function(a){
     var budget=num(a.budget_per_day||0);
@@ -2030,7 +2030,7 @@ function renderAds(rows){
     var pauseBtnCls=paused?'fetch-btn btn-resume':'fetch-btn btn-pause';
     var statusCls=paused?'ad-status-paused':'ad-status-active';
     return '<tr><td><div class="c-name">'+esc(a.ad_name||a.ad_id||'Meta Ad')+'</div><div class="c-sub">'+esc(a.effective_status||a.status||'')+'</div></td>'+
-      '<td><span class="c-station">'+esc(a.station_code||'')+'</span><div class="c-sub">'+esc(a.cluster||'')+' Â· '+esc(a.region||'')+'</div></td>'+
+      '<td><span class="c-station">'+esc(a.station_code||'')+'</span><div class="c-sub">'+esc(a.cluster||'')+' - '+esc(a.region||'')+'</div></td>'+
       '<td><span class="job-badge j-'+esc(a.job_type_code)+'">'+esc(a.job_type_code||'')+'</span></td>'+
       '<td>'+budget+'</td><td>'+num(a.total_spend||0)+'</td><td>'+esc(shortDate(a.created_at||a.active_since||''))+'</td><td>'+num(a.days_active||0)+'</td><td>'+num(a.total_leads||0)+'</td><td class="'+statusCls+'">'+esc(paused?'Paused':'Active')+'</td><td>'+poster+'</td>'+
       '<td><button class="fetch-btn" onclick="budgetRequest(\''+esc(a.ad_id)+'\',\''+esc(a.budget_per_day||0)+'\')">Budget</button> <button class="'+pauseBtnCls+'" onclick="toggleAd(this,\''+esc(a.ad_id)+'\')">'+pauseLabel+'</button> <button class="fetch-btn btn-stop" onclick="stopAd(\''+esc(a.ad_id)+'\')">Stop</button></td></tr>';
@@ -2042,7 +2042,7 @@ function renderAds(rows){
     var pauseLabel=paused?'Resume':'Pause';
     var pauseBtnCls=paused?'fetch-btn btn-resume':'fetch-btn btn-pause';
     return '<div class="ad-card"><div class="ad-card-top"><div><div class="ad-title">'+esc(a.ad_name||a.ad_id||'Meta Ad')+'</div>'+
-      '<div class="ad-meta">'+esc(a.effective_status||a.status||'')+' Â· '+esc(shortDate(a.created_at||a.active_since||''))+'</div></div>'+
+      '<div class="ad-meta">'+esc(a.effective_status||a.status||'')+' - '+esc(shortDate(a.created_at||a.active_since||''))+'</div></div>'+
       '<span class="c-station">'+esc(a.station_code||'')+'</span></div>'+
       '<div class="ad-grid">'+
         '<div><b>'+num(a.total_leads||0)+'</b><span>Leads</span></div>'+
@@ -2173,7 +2173,7 @@ function adminBudget(adId,budget){
   google.script.run.withSuccessHandler(function(){loadAds();}).withFailureHandler(err).updateAdBudget(adId,budget);
 }
 
-// â”€â”€ SOP & TEAM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 function loadSOP(){
   var el=document.getElementById('sop-cards');
   el.innerHTML='<div class="spin-wrap"><div class="spinner"></div></div>';
@@ -2207,7 +2207,7 @@ function loadTeam(){
       return '<div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px">'+
         '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">'+
         '<div style="width:34px;height:34px;border-radius:50%;background:rgba(212,39,90,.1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--accent);flex-shrink:0">'+init+'</div>'+
-        '<div><div style="font-size:13px;font-weight:500">'+esc(u.name||'â€”')+'</div><div style="font-size:11px;color:var(--text3)">'+esc(u.email)+'</div></div></div>'+
+        '<div><div style="font-size:13px;font-weight:500">'+esc(u.name||'-')+'</div><div style="font-size:11px;color:var(--text3)">'+esc(u.email)+'</div></div></div>'+
         '<div style="display:flex;flex-wrap:wrap;gap:5px">'+
         '<span class="rbadge '+u.role+'">'+esc(u.role)+'</span>'+
         (u.state?'<span style="background:var(--bg3);font-size:10px;padding:1px 6px;border-radius:3px;color:var(--text2)">'+esc(u.state)+'</span>':'')+
@@ -2218,7 +2218,7 @@ function loadTeam(){
   }).withFailureHandler(err).getUsers();
 }
 
-// â”€â”€ UTILS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// --
 function num(v){return Number(v||0).toLocaleString('en-IN')}
 function shortDate(v){
   if(!v) return '-';
@@ -2240,7 +2240,7 @@ function showMailInfo(e){
   tip.innerHTML='<div style="font-weight:600;color:var(--text);margin-bottom:6px">Work Email for Associates</div>'+
     '<div>Once a candidate is <span style="color:var(--green)">Joined</span>, create a company email ID for them and update it here.</div>'+
     '<div style="margin-top:8px;color:var(--text3)">Format: <span style="font-family:monospace;color:var(--accent)">firstname.lastname@dropxlogistics.com</span></div>'+
-    '<div style="margin-top:6px;color:var(--text3)">This is optional â€” only fill after onboarding is complete.</div>'+
+    '<div style="margin-top:6px;color:var(--text3)">This is optional - only fill after onboarding is complete.</div>'+
     '<div style="margin-top:10px;text-align:right"><span onclick="document.getElementById(\'mail-tooltip\').remove()" style="cursor:pointer;color:var(--accent);font-size:11px">Close</span></div>';
   var rect=e.target.getBoundingClientRect();
   tip.style.top=(rect.bottom+8)+'px';
@@ -2290,6 +2290,8 @@ function showStaleInfo(e){
 </script>
 </body>
 </html>
+
+
 
 
 
